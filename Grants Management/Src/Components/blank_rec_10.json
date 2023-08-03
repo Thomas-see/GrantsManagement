@@ -1,0 +1,90 @@
+{
+  "ComponentAllowCustomization": true,
+  "ComponentChangedSinceFileImport": true,
+  "ComponentManifest": {
+    "AllowAccessToGlobals": false,
+    "AllowCustomization": true,
+    "Description": "",
+    "Name": "blank_rec_10",
+    "TemplateGuid": "d2fdb0ab0f0a49b4971a0c071fdf54ea"
+  },
+  "ComponentType": "CanvasComponent",
+  "CustomGroupControlTemplateName": "",
+  "CustomProperties": [
+    {
+      "Category": 2,
+      "DisplayName": "SaveButton",
+      "Hidden": false,
+      "Name": "SaveButton",
+      "PropertyDataTypeKey": "String",
+      "PropertyScopeKey": {
+        "PropertyScopeRuleNamespaceKey": "34",
+        "PropertyScopeRulesKey": []
+      },
+      "Tooltip": "A custom property",
+      "Type": "{\"Version\":\"1.334\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 2,
+      "DisplayName": "SaveProgressButton",
+      "Hidden": false,
+      "Name": "SaveProgressButton",
+      "PropertyDataTypeKey": "String",
+      "PropertyScopeKey": {
+        "PropertyScopeRuleNamespaceKey": "34",
+        "PropertyScopeRulesKey": []
+      },
+      "Tooltip": "A custom property",
+      "Type": "{\"Version\":\"1.334\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "ButtonColor",
+      "Hidden": false,
+      "Name": "ButtonColor",
+      "PropertyDataTypeKey": "Color",
+      "Tooltip": "A custom property",
+      "Type": "{\"Version\":\"1.334\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Color\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "Button2Title",
+      "Hidden": false,
+      "Name": "Button2Title",
+      "PropertyDataTypeKey": "String",
+      "Tooltip": "A custom property",
+      "Type": "{\"Version\":\"1.334\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "Button2Visible",
+      "Hidden": false,
+      "Name": "Button2Visible",
+      "PropertyDataTypeKey": "Boolean",
+      "Tooltip": "A custom property",
+      "Type": "{\"Version\":\"1.334\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Boolean\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "BGCOLOUR",
+      "Hidden": false,
+      "Name": "BGCOLOUR",
+      "PropertyDataTypeKey": "Color",
+      "Tooltip": "A custom property",
+      "Type": "{\"Version\":\"1.334\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Color\",\"EnumString\":\"\",\"Type\":[]}}"
+    }
+  ],
+  "FirstParty": true,
+  "Id": "http://microsoft.com/appmagic/Component",
+  "IsComponentLocked": false,
+  "IsComponentTemplate": true,
+  "IsCustomGroupControlTemplate": false,
+  "IsPcfControl": false,
+  "IsPremiumPcfControl": false,
+  "IsWidgetTemplate": false,
+  "LastModifiedTimestamp": "638266563140103384",
+  "Name": "d2fdb0ab0f0a49b4971a0c071fdf54ea",
+  "OverridableProperties": {},
+  "TemplateOriginalName": "9ad4503bce394eb59a237af57accfa10",
+  "Version": "637708606690468443"
+}

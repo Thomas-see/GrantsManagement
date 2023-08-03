@@ -1,0 +1,4467 @@
+"'Wellbeing Grants_Review' As screen":
+    Fill: =LookUp(colColorScheme,Name="bg_Primary",color)
+    LoadingSpinnerColor: =RGBA(98, 100, 167, 1)
+    OnHidden: |-
+        =UpdateContext({showMenu:false})
+    OnVisible: |-
+        =UpdateContext({showPDF:false})
+
+    TopMenu_13 As TopMenu:
+        Visible: =false
+        Y: =header_page_3.Y+ header_page_3.Height
+        ZIndex: =1
+
+    TrialNotification_14 As TrialNotification:
+        ChildTabPriority: =false
+        EnableChildFocus: =false
+        Message: =//TrialMessage
+        Visible: =false//If(CMSAppData.type = "1" ,true,false)
+        ZIndex: =2
+
+    Container1_14 As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Fill: =LookUp(colColorScheme,Name="secondary_colour",Colour)
+        Height: =453
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Visible: =false
+        Width: =Parent.Width/4
+        X: =LookUp(colColorScheme,Name="body_padding",padding)
+        Y: =TopMenu_13.Height+TopMenu_13.Y
+        ZIndex: =3
+
+        "wellSearchTxt_7 As 'Text input'":
+            DelayOutput: =true
+            DisplayMode: =DisplayMode.Edit
+            Height: =32
+            PCFTeamsTheme: ="default"
+            Width: =262
+            X: =LookUp(colColorScheme,Name="margin",margin)
+            Y: =LookUp(colColorScheme,Name="margin",margin)
+            ZIndex: =3
+
+        wellSortIC_14 As icon.ArrowsUpDown:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            Color: =LookUp(colColorScheme,Name="theme",Colour)
+            DisabledBorderColor: =RGBA(243, 242, 241, 1)
+            DisabledColor: =RGBA(220, 220, 220, 1)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Height: =wellSearchTxt_7.Height
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =ColorFade(Self.Color, -30%)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Icon: =Icon.Sort
+            OnSelect: |-
+                =UpdateContext({ASCGrantSORDER: !ASCGrantSORDER})
+            PaddingBottom: =3
+            PaddingLeft: =3
+            PaddingRight: =3
+            PaddingTop: =3
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            Width: =32
+            X: =309
+            Y: =wellSearchTxt_7.Y
+            ZIndex: =4
+
+        wellSortIC_13 As icon.ArrowsUpDown:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            Color: =LookUp(colColorScheme,Name="theme",Colour)
+            DisabledBorderColor: =RGBA(243, 242, 241, 1)
+            DisabledColor: =RGBA(220, 220, 220, 1)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Height: =wellSearchTxt_7.Height
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =ColorFade(Self.Color, -30%)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Icon: =Icon.Reload
+            OnSelect: =Refresh(Grants_tb_sportGrants); Refresh(Grants_tb_wellbeingGrants)
+            PaddingBottom: =3
+            PaddingLeft: =3
+            PaddingRight: =3
+            PaddingTop: =3
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            Width: =32
+            X: =277
+            Y: =wellSortIC_14.Y
+            ZIndex: =6
+
+    Container1_15 As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Bold
+        Fill: =LookUp(colColorScheme,Name="secondary_colour",Colour)
+        Height: =591
+        Width: =1028
+        X: =337
+        Y: =117
+        ZIndex: =4
+
+        GeneralGrantsFRM_5 As form:
+            BorderColor: =RGBA(243, 242, 241, 1)
+            DataSource: =Grants_tb_wellbeingGrants
+            Height: =Parent.Height
+            Item: =WellbeingGY_8.Selected
+            Width: =Parent.Width
+            ZIndex: =1
+
+            DataCard2_5 As typedDataCard.blankCard:
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DisplayMode: =DisplayMode.Edit
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =200
+                Width: =1026
+                X: =0
+                Y: =0
+                ZIndex: =1
+
+                Container2_6 As groupContainer.manualLayoutContainer:
+                    DropShadow: =DropShadow.Light
+                    Height: =270
+                    Width: =1026
+                    Y: =0//Label16_11.Height + Label16_11.Y
+                    ZIndex: =2
+
+                    Label16_20 As label:
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FontWeight: =FontWeight.Bold
+                        Height: =46
+                        PaddingLeft: =LookUp(colColorScheme,Name="margin",margin)
+                        PaddingRight: =0
+                        PaddingTop: =LookUp(colColorScheme,Name="margin",margin)
+                        Size: =13
+                        Text: =ThisItem.Name
+                        Width: =Parent.Width/2
+                        ZIndex: =1
+
+                    DataCardValue5_19 As text:
+                        BorderColor: =LookUp(colColorScheme,Name="theme",Colour)
+                        BorderThickness: =0
+                        Color: =RGBA(0, 0, 0, 1)
+                        Default: =Coalesce( ThisItem.Reviewer,User().FullName)
+                        DelayOutput: =true
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayMode: =If(ThisItem.Reviewer = Blank(), Parent.DisplayMode, DisplayMode.View)
+                        FocusedBorderThickness: =4
+                        Height: =35
+                        HoverBorderColor: =Self.BorderColor
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =ColorFade(LookUp(colColorScheme,Name="theme",Colour),90%)
+                        PaddingLeft: =5
+                        PressedBorderColor: =Self.BorderColor
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =13
+                        Tooltip: ="Reviewer"
+                        Width: =DataCardKey5_25.Width 
+                        X: =LookUp(colColorScheme,Name="margin",margin)
+                        Y: =DataCardKey5_25.Y + DataCardKey5_25.Height + 5
+                        ZIndex: =3
+
+                    DataCardKey5_25 As label:
+                        AutoHeight: =true
+                        Color: =LookUp(colColorScheme,Name="font_Title",Colour)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FontWeight: =FontWeight.Bold
+                        Height: =34
+                        PaddingLeft: =0
+                        Size: =11
+                        Text: ="REVIEWER"
+                        Width: =Parent.Width/4
+                        Wrap: =false
+                        X: =LookUp(colColorScheme,Name="margin",margin)
+                        Y: =TabList3_6.Height + TabList3_6.Y
+                        ZIndex: =4
+
+                    DataCardValue5_20 As text:
+                        BorderColor: =LookUp(colColorScheme,Name="theme",Colour)
+                        BorderThickness: =0
+                        Color: =RGBA(0, 0, 0, 1)
+                        Default: =ThisItem.'Reviewer notes'
+                        DelayOutput: =true
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayMode: =Parent.DisplayMode
+                        FocusedBorderThickness: =4
+                        Height: =70
+                        HoverBorderColor: =Self.BorderColor
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =ColorFade(LookUp(colColorScheme,Name="theme",Colour),90%)
+                        Mode: =TextMode.MultiLine
+                        PaddingLeft: =5
+                        PressedBorderColor: =Self.BorderColor
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =13
+                        Tooltip: ="Reviewer"
+                        Width: =Parent.Width- 48
+                        X: =DataCardKey5_27.X
+                        Y: =DataCardKey5_27.Y + DataCardKey5_27.Height + 5
+                        ZIndex: =5
+
+                    DataCardKey5_27 As label:
+                        AutoHeight: =true
+                        Color: =LookUp(colColorScheme,Name="font_Title",Colour)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FontWeight: =FontWeight.Bold
+                        Height: =34
+                        PaddingLeft: =0
+                        Size: =11
+                        Text: ="REVIEWER NOTES"
+                        Width: =Parent.Width/4
+                        Wrap: =false
+                        X: =DataCardValue5_19.X
+                        Y: =DataCardValue5_19.Height + DataCardValue5_19.Y
+                        ZIndex: =6
+
+                    DataCardKey5_26 As label:
+                        AutoHeight: =true
+                        Color: =LookUp(colColorScheme,Name="font_Title",Colour)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FontWeight: =FontWeight.Bold
+                        Height: =34
+                        PaddingLeft: =0
+                        Size: =11
+                        Text: ="RECOMMENDATION"
+                        Width: =Parent.Width/4
+                        Wrap: =false
+                        X: =DataCardKey5_25.X*2 + DataCardKey5_25.Width
+                        Y: =TabList3_6.Height + TabList3_6.Y
+                        ZIndex: =7
+
+                    recCombobox_3 As combobox:
+                        BorderColor: =LookUp(colColorScheme,Name="theme",Colour)
+                        BorderThickness: =0
+                        ChevronBackground: =LookUp(colColorScheme,Name="theme",Colour)
+                        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                        ChevronFill: =LookUp(colColorScheme,Name="bg_Fields",Colour)
+                        ChevronHoverBackground: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+                        ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                        DefaultSelectedItems: =[ThisItem.'Reviewer Recommendation']
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayFields: =["Value"]
+                        Height: =35
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =ColorFade(LookUp(colColorScheme,Name="theme",Colour),80%)
+                        InputTextPlaceholder: ="Status"
+                        IsSearchable: =false
+                        Items: =Choices(ReviewerRecommendation)
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =RGBA(0, 18, 107, 1)
+                        SearchFields: =["Value"]
+                        SearchItems: =[]
+                        SelectionFill: =LookUp(colColorScheme,Name="theme",Colour)
+                        SelectMultiple: =false
+                        Size: =10
+                        Tooltip: ="Filter by Status"
+                        Width: =DataCardKey5_26.Width
+                        X: =DataCardKey5_26.X
+                        Y: =DataCardKey5_26.Y + DataCardKey5_26.Height + 5
+                        ZIndex: =8
+
+                    TabList3_6 As gallery.galleryHorizontal:
+                        BorderColor: =RGBA(243, 242, 241, 1)
+                        DelayItemLoading: =true
+                        FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                        FocusedBorderThickness: =2
+                        Height: =40
+                        Items: =Choices(ApplicationStatus)
+                        LoadingSpinner: =LoadingSpinner.Data
+                        TemplateSize: =150
+                        Width: =Parent.Width
+                        Y: =Label16_20.Height + Label16_20.Y
+                        ZIndex: =9
+
+                        Label3_5 As Label:
+                            Alignment: =Align.Center
+                            Color: =If(ThisItem.Value = WellbeingGY_8.Selected.'Application status',RGBA(0,0,0,1),RGBA(140, 140, 140, 1))
+                            DisplayMode: =DisplayMode.View
+                            FontSize: =10.5
+                            FontWeight: =If(ThisItem.Value = WellbeingGY_8.Selected.'Application status',FontWeight.Bold,FontWeight.Normal)
+                            Height: =Parent.TemplateHeight
+                            OnSelect: =Select(Parent)
+                            PCFTeamsTheme: ="default"
+                            Text: =ThisItem.Value
+                            Width: =Parent.TemplateWidth
+                            Wrap: =false
+                            X: =0
+                            Y: =0
+                            ZIndex: =1
+
+                        Rectangle3_5 As rectangle:
+                            BorderColor: =RGBA(243, 242, 241, 1)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            DisabledFill: =RGBA(200, 198, 196, 1)
+                            DisplayMode: =DisplayMode.View
+                            Fill: =If(ThisItem.Value = WellbeingGY_8.Selected.'Application status',LookUp(colColorScheme,Name="font_Title",Colour),RGBA(180, 178, 176, 0))
+                            FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                            Height: =4
+                            OnSelect: =Select(Parent)
+                            Width: =Parent.TemplateWidth
+                            Y: =26
+                            ZIndex: =2
+
+                    btnSaveGrants_14 As button:
+                        BorderColor: =Self.Fill
+                        BorderThickness: =1
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        Fill: =LookUp(colColorScheme,Name="Main_colour",Colour)
+                        FontWeight: =FontWeight.Semibold
+                        Height: =28
+                        HoverFill: =ColorFade(Self.Fill, -20%)
+                        OnSelect: =SubmitForm(GeneralGrantsFRM_5)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        PressedColor: =Self.Color
+                        PressedFill: =Self.Fill
+                        RadiusBottomLeft: =5
+                        RadiusBottomRight: =5
+                        RadiusTopLeft: =5
+                        RadiusTopRight: =5
+                        Size: =11
+                        Text: ="Save"
+                        Visible: =false
+                        Width: =150
+                        X: =Container2_6.Width - Self.Width -  LookUp(colColorScheme,Name = "margin",margin)
+                        Y: =LookUp(colColorScheme,Name="margin",margin) - 5
+                        ZIndex: =10
+
+                    Rectangle4_7 As rectangle:
+                        BorderColor: =RGBA(243, 242, 241, 1)
+                        BorderStyle: =BorderStyle.None
+                        DisabledFill: =RGBA(200, 198, 196, 1)
+                        Fill: =LookUp(colColorScheme,Name="bg_Primary",Colour)
+                        FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                        Height: =5
+                        Width: =Parent.Width
+                        Y: =Parent.Height - Self.Height
+                        ZIndex: =14
+
+                    btnSaveGrants_15 As button:
+                        BorderColor: =Self.Fill
+                        BorderThickness: =1
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        Fill: =LookUp(colColorScheme,Name="Main_colour",Colour)
+                        FontWeight: =FontWeight.Semibold
+                        Height: =28
+                        HoverFill: =ColorFade(Self.Fill, -20%)
+                        OnSelect: |-
+                            =UpdateContext({showPDF:true})
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        PressedColor: =Self.Color
+                        PressedFill: =Self.Fill
+                        RadiusBottomLeft: =5
+                        RadiusBottomRight: =5
+                        RadiusTopLeft: =5
+                        RadiusTopRight: =5
+                        Size: =11
+                        Text: ="View PDF"
+                        Visible: =If(CountRows(DataCardValue96_5.Attachments)>0,true,false)
+                        Width: =150
+                        X: =btnSaveGrants_14.X - Self.Width  -  LookUp(colColorScheme,Name = "margin",margin)
+                        Y: =btnSaveGrants_14.Y
+                        ZIndex: =15
+
+                    "Checkbox1_3 As 'Check box'":
+                        BoxSide: ='Checkbox.BoxSide'.Start
+                        Checked: =If(ThisItem.'Review Complete Date'=Blank(),false,true)
+                        CheckedCheckboxBackgroundFill: =LookUp(colColorScheme,Name="font_Title",Colour)
+                        CheckedCheckboxBorderColor: =LookUp(colColorScheme,Name="font_Title",Colour)
+                        DisplayMode: =If(ThisItem.'Review Complete Date'=Blank(),DisplayMode.Edit,DisplayMode.View)
+                        Font: =Font.'Open Sans'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =35
+                        Label: ="MARK AS COMPLETE"
+                        OnChange: |-
+                            =If(Self.Checked,UpdateContext({ReviewCompleteDate:Now()}),UpdateContext({ReviewCompleteDate:Blank()}))
+                        PCFTeamsTheme: ="default"
+                        Size: =12
+                        Width: =200
+                        X: =Parent.Width - Self.Width - 48
+                        Y: =DataCardKey5_26.Y
+                        ZIndex: =16
+
+            Attachments_DataCard1_5 As typedDataCard.fileEditCard:
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr666_attachments"
+                Default: |-
+                    =If(!IsBlank(ThisItem.Attachments.FileName), Table({DisplayName: ThisItem.Attachments.FileName, Value: ThisItem.Attachments.Value}), Blank())
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@Grants_tb_wellbeingGrants],DataSourceInfo.DisplayName,"cr666_attachments")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Update: =DataCardValue96_5.Attachments
+                Width: =316
+                X: =0
+                Y: =16
+                ZIndex: =1
+
+                DataCardKey101_5 As label:
+                    AutoHeight: =true
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(37, 36, 35, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(200, 198, 196, 1)
+                    FocusedBorderThickness: =2
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =34
+                    PaddingLeft: =0
+                    Size: =10.5
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue96_5 As attachments:
+                    AddAttachmentText: ="Upload file"
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(37, 36, 35, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(200, 198, 196, 1)
+                    DisabledFill: =RGBA(243, 242, 241, 1)
+                    DisplayMode: =Parent.DisplayMode
+                    Fill: =RGBA(243, 242, 241, 1)
+                    FocusedBorderThickness: =2
+                    Font: =Font.'Segoe UI'
+                    Height: =170
+                    HoverColor: =RGBA(37, 36, 35, 1)
+                    HoverFill: =RGBA(243, 242, 241, 1)
+                    IsInDataCard: =true
+                    ItemColor: =RGBA(0, 0, 0, 1)
+                    ItemFill: =RGBA(237, 235, 233, 1)
+                    ItemHoverColor: =RGBA(37, 36, 35, 1)
+                    ItemHoverFill: =RGBA(243, 242, 241, 1)
+                    Items: =Parent.Default
+                    ItemSpacing: =12
+                    MaxAttachments: =1
+                    MaxAttachmentsText: =""
+                    NoAttachmentsColor: =RGBA(200, 198, 196, 1)
+                    NoAttachmentsText: ="There is no file."
+                    PaddingBottom: =5
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    PaddingRight: =5
+                    PaddingTop: =5
+                    PressedColor: =RGBA(255, 255, 255, 1)
+                    PressedFill: =RGBA(237, 235, 233, 1)
+                    Size: =10.5
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey101_5.Y + DataCardKey101_5.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage101_5 As label:
+                    AutoHeight: =true
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(168, 0, 0, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(168, 0, 0, 1)
+                    FocusedBorderThickness: =2
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =10.5
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue96_5.Y + DataCardValue96_5.Height
+                    ZIndex: =3
+
+                StarVisible101_5 As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(37, 36, 35, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(200, 198, 196, 1)
+                    FocusedBorderThickness: =2
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =DataCardKey101_5.Height
+                    PaddingLeft: =0
+                    Size: =10.5
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey101_5.Y
+                    ZIndex: =4
+
+            Reviewer_DataCard1_5 As typedDataCard.pcfCoreTextualEditCard:
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr666_reviewer"
+                Default: =ThisItem.Reviewer
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Grants_tb_wellbeingGrants],DataSourceInfo.DisplayName,"cr666_reviewer")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                MaxLength: =DataSourceInfo([@Grants_tb_wellbeingGrants], DataSourceInfo.MaxLength, "cr666_reviewer")
+                Required: =false
+                Update: =DataCardValue5_19.Text
+                Visible: =false
+                Width: =316
+                WidthFit: =true
+                X: =1
+                Y: =16
+                ZIndex: =1
+
+                DataCardKey99_5 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue94_5 As 'Text box'":
+                    AccessibleLabel: =Parent.DisplayName
+                    DisplayMode: =Parent.DisplayMode
+                    FontSize: =10.5
+                    Height: =32
+                    Mode: ="SingleLine"
+                    PCFTeamsTheme: ="default"
+                    Required: =Parent.Required
+                    Tooltip: =Parent.DisplayName
+                    Value: =Parent.Default
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey99_5.Y + DataCardKey99_5.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage99_5 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue94_5.Y + DataCardValue94_5.Height
+                    ZIndex: =3
+
+                StarVisible99_5 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey99_5.Y
+                    ZIndex: =4
+
+            "'Reviewer notes_DataCard1_5' As typedDataCard.pcfCoreTextualEditCard":
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr666_reviewernotes"
+                Default: =ThisItem.'Reviewer notes'
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Grants_tb_wellbeingGrants],DataSourceInfo.DisplayName,"cr666_reviewernotes")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                MaxLength: =DataSourceInfo([@Grants_tb_wellbeingGrants], DataSourceInfo.MaxLength, "cr666_reviewernotes")
+                Required: =false
+                Update: =DataCardValue5_20.Text
+                Visible: =false
+                Width: =316
+                WidthFit: =true
+                X: =2
+                Y: =16
+                ZIndex: =1
+
+                DataCardKey100_5 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue95_5 As 'Text box'":
+                    AccessibleLabel: =Parent.DisplayName
+                    DisplayMode: =Parent.DisplayMode
+                    FontSize: =10.5
+                    Height: =32
+                    Mode: ="SingleLine"
+                    PCFTeamsTheme: ="default"
+                    Required: =Parent.Required
+                    Tooltip: =Parent.DisplayName
+                    Value: =Parent.Default
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey100_5.Y + DataCardKey100_5.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage100_5 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue95_5.Y + DataCardValue95_5.Height
+                    ZIndex: =3
+
+                StarVisible100_5 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey100_5.Y
+                    ZIndex: =4
+
+            "'Reviewer Recommendation_DataCard1_3' As typedDataCard.pcfCoreComboBoxOptionSetSingleEditCard":
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr666_reviewerrecommendation"
+                Default: =ThisItem.'Reviewer Recommendation'
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Grants_tb_wellbeingGrants],DataSourceInfo.DisplayName,"cr666_reviewerrecommendation")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =false
+                Update: =recCombobox_3.Selected.Value
+                Visible: =false
+                Width: =316
+                WidthFit: =true
+                X: =0
+                Y: =17
+                ZIndex: =1
+
+                DataCardKey4_3 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue4_3 As combobox:
+                    AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                    BorderColor: =RGBA(243, 242, 241, 1)
+                    ChevronBackground: =RGBA(243, 242, 241, 1)
+                    ChevronDisabledBackground: =RGBA(243, 242, 241, 1)
+                    ChevronDisabledFill: =RGBA(200, 198, 196, 1)
+                    ChevronFill: =RGBA(96, 94, 92, 1)
+                    ChevronHoverBackground: =RGBA(243, 242, 241, 1)
+                    ChevronHoverFill: =RGBA(96, 94, 92, 1)
+                    Color: =RGBA(37, 36, 35, 1)
+                    DefaultSelectedItems: =[Parent.Default]
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(200, 198, 196, 1)
+                    DisabledFill: =RGBA(243, 242, 241, 1)
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Fill: =RGBA(243, 242, 241, 1)
+                    FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                    FocusedBorderThickness: =2
+                    Font: =Font.'Segoe UI'
+                    Height: =32
+                    HoverBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    HoverColor: =RGBA(37, 36, 35, 1)
+                    HoverFill: =RGBA(243, 242, 241, 1)
+                    IsSearchable: =false
+                    Items: =Choices(ReviewerRecommendation)
+                    PaddingLeft: =12
+                    PressedBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    PressedColor: =RGBA(255, 255, 255, 1)
+                    PressedFill: =RGBA(243, 242, 241, 1)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectionColor: =RGBA(37, 36, 35, 1)
+                    SelectionFill: =RGBA(237, 235, 233, 1)
+                    SelectMultiple: =false
+                    Size: =10.5
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey4_3.Y + DataCardKey4_3.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage4_3 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue4_3.Y + DataCardValue4_3.Height
+                    ZIndex: =3
+
+                StarVisible4_3 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =20
+                    PCFTeamsTheme: ="default"
+                    Text: ="*"
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey4_3.Y
+                    ZIndex: =4
+
+            "'Review Complete Date_DataCard1_3' As typedDataCard.pcfCoreDateTimeEditCard":
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr666_reviewcompletedate"
+                Default: =ThisItem.'Review Complete Date'
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Grants_tb_wellbeingGrants],DataSourceInfo.DisplayName,"cr666_reviewcompletedate")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =false
+                Update: =ReviewCompleteDate
+                Visible: =false
+                Width: =316
+                WidthFit: =true
+                X: =1
+                Y: =17
+                ZIndex: =1
+
+                DataCardKey5_3 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DateValue1_3 As 'Date picker'":
+                    AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =32
+                    PCFTeamsTheme: ="default"
+                    Tooltip: =Parent.DisplayName
+                    Value: =Parent.Default
+                    Width: =(Parent.Width - 48) / 2
+                    X: =24
+                    Y: =DataCardKey5_3.Y + DataCardKey5_3.Height + 4
+                    ZIndex: =2
+
+                HourValue1_3 As combobox:
+                    BorderColor: =RGBA(243, 242, 241, 1)
+                    ChevronBackground: =RGBA(243, 242, 241, 1)
+                    ChevronDisabledBackground: =RGBA(243, 242, 241, 1)
+                    ChevronDisabledFill: =RGBA(200, 198, 196, 1)
+                    ChevronFill: =RGBA(96, 94, 92, 1)
+                    ChevronHoverBackground: =RGBA(243, 242, 241, 1)
+                    ChevronHoverFill: =RGBA(96, 94, 92, 1)
+                    Color: =RGBA(37, 36, 35, 1)
+                    DefaultSelectedItems: =[Text(Hour(Parent.Default),"00")]
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(200, 198, 196, 1)
+                    DisabledFill: =RGBA(243, 242, 241, 1)
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Fill: =RGBA(243, 242, 241, 1)
+                    FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                    FocusedBorderThickness: =2
+                    Font: =Font.'Segoe UI'
+                    Height: =28
+                    HoverBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    HoverColor: =RGBA(37, 36, 35, 1)
+                    HoverFill: =RGBA(243, 242, 241, 1)
+                    IsSearchable: =false
+                    Items: =["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23"]
+                    PaddingLeft: =12
+                    PressedBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    PressedColor: =RGBA(255, 255, 255, 1)
+                    PressedFill: =RGBA(243, 242, 241, 1)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectionColor: =RGBA(37, 36, 35, 1)
+                    SelectionFill: =RGBA(237, 235, 233, 1)
+                    SelectMultiple: =false
+                    Size: =10.5
+                    Tooltip: =Parent.DisplayName
+                    Width: =DateValue1_3.Width / 2 - 10
+                    X: =DateValue1_3.X + DateValue1_3.Width + 10
+                    Y: =DateValue1_3.Y + 1
+                    ZIndex: =3
+
+                Separator1_3 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =10.5
+                    Height: =HourValue1_3.Height
+                    PCFTeamsTheme: ="default"
+                    Text: |-
+                        =":"
+                    VerticalAlignment: =VerticalAlign.Middle
+                    Width: =10
+                    X: =HourValue1_3.X + HourValue1_3.Width
+                    Y: =HourValue1_3.Y
+                    ZIndex: =4
+
+                MinuteValue1_3 As combobox:
+                    BorderColor: =RGBA(243, 242, 241, 1)
+                    ChevronBackground: =RGBA(243, 242, 241, 1)
+                    ChevronDisabledBackground: =RGBA(243, 242, 241, 1)
+                    ChevronDisabledFill: =RGBA(200, 198, 196, 1)
+                    ChevronFill: =RGBA(96, 94, 92, 1)
+                    ChevronHoverBackground: =RGBA(243, 242, 241, 1)
+                    ChevronHoverFill: =RGBA(96, 94, 92, 1)
+                    Color: =RGBA(37, 36, 35, 1)
+                    DefaultSelectedItems: =[Text(Minute(Parent.Default),"00")]
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(200, 198, 196, 1)
+                    DisabledFill: =RGBA(243, 242, 241, 1)
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Fill: =RGBA(243, 242, 241, 1)
+                    FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                    FocusedBorderThickness: =2
+                    Font: =Font.'Segoe UI'
+                    Height: =28
+                    HoverBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    HoverColor: =RGBA(37, 36, 35, 1)
+                    HoverFill: =RGBA(243, 242, 241, 1)
+                    IsSearchable: =false
+                    Items: =["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59"]
+                    PaddingLeft: =12
+                    PressedBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    PressedColor: =RGBA(255, 255, 255, 1)
+                    PressedFill: =RGBA(243, 242, 241, 1)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectionColor: =RGBA(37, 36, 35, 1)
+                    SelectionFill: =RGBA(237, 235, 233, 1)
+                    SelectMultiple: =false
+                    Size: =10.5
+                    Tooltip: =Parent.DisplayName
+                    Width: =HourValue1_3.Width
+                    X: =HourValue1_3.X + HourValue1_3.Width + Separator1_3.Width
+                    Y: =HourValue1_3.Y + 1
+                    ZIndex: =5
+
+                ErrorMessage5_3 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DateValue1_3.Y + DateValue1_3.Height
+                    ZIndex: =6
+
+                StarVisible5_3 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =20
+                    PCFTeamsTheme: ="default"
+                    Text: ="*"
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey5_3.Y
+                    ZIndex: =7
+
+            Name_DataCard2_5 As typedDataCard.pcfCoreTextualEditCard:
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr666_name"
+                Default: =ThisItem.Name
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@Grants_tb_wellbeingGrants],DataSourceInfo.DisplayName,"cr666_name")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                MaxLength: =DataSourceInfo([@Grants_tb_wellbeingGrants], DataSourceInfo.MaxLength, "cr666_name")
+                Required: =true
+                Update: =DataCardValue35_5.Value
+                Width: =316
+                WidthFit: =true
+                X: =0
+                Y: =1
+                ZIndex: =2
+
+                DataCardKey37_5 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue35_5 As 'Text box'":
+                    AccessibleLabel: =Parent.DisplayName
+                    DisplayMode: =Parent.DisplayMode
+                    FontSize: =10.5
+                    Height: =32
+                    Mode: ="SingleLine"
+                    PCFTeamsTheme: ="default"
+                    Required: =Parent.Required
+                    Tooltip: =Parent.DisplayName
+                    Value: =Parent.Default
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey37_5.Y + DataCardKey37_5.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage37_5 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue35_5.Y + DataCardValue35_5.Height
+                    ZIndex: =3
+
+                StarVisible37_5 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey37_5.Y
+                    ZIndex: =4
+
+            isCharity_DataCard2_5 As typedDataCard.pcfCoreComboBoxOptionSetSingleEditCard:
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr666_ischarity"
+                Default: =ThisItem.isCharity
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@Grants_tb_wellbeingGrants],DataSourceInfo.DisplayName,"cr666_ischarity")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =false
+                Update: =DataCardValue36_5.Selected.Value
+                Width: =316
+                WidthFit: =true
+                X: =0
+                Y: =2
+                ZIndex: =2
+
+                DataCardKey38_5 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue36_5 As combobox:
+                    AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                    BorderColor: =RGBA(243, 242, 241, 1)
+                    ChevronBackground: =RGBA(243, 242, 241, 1)
+                    ChevronDisabledBackground: =RGBA(243, 242, 241, 1)
+                    ChevronDisabledFill: =RGBA(200, 198, 196, 1)
+                    ChevronFill: =RGBA(96, 94, 92, 1)
+                    ChevronHoverBackground: =RGBA(243, 242, 241, 1)
+                    ChevronHoverFill: =RGBA(96, 94, 92, 1)
+                    Color: =RGBA(37, 36, 35, 1)
+                    DefaultSelectedItems: =[Parent.Default]
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(200, 198, 196, 1)
+                    DisabledFill: =RGBA(243, 242, 241, 1)
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Fill: =RGBA(243, 242, 241, 1)
+                    FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                    FocusedBorderThickness: =2
+                    Font: =Font.'Segoe UI'
+                    Height: =32
+                    HoverBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    HoverColor: =RGBA(37, 36, 35, 1)
+                    HoverFill: =RGBA(243, 242, 241, 1)
+                    IsSearchable: =false
+                    Items: =Choices('isCharity (Grants_tb_wellbeingGrants)')
+                    PaddingLeft: =12
+                    PressedBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    PressedColor: =RGBA(255, 255, 255, 1)
+                    PressedFill: =RGBA(243, 242, 241, 1)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectionColor: =RGBA(37, 36, 35, 1)
+                    SelectionFill: =RGBA(237, 235, 233, 1)
+                    SelectMultiple: =false
+                    Size: =10.5
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey38_5.Y + DataCardKey38_5.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage38_5 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue36_5.Y + DataCardValue36_5.Height
+                    ZIndex: =3
+
+                StarVisible38_5 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =20
+                    PCFTeamsTheme: ="default"
+                    Text: ="*"
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey38_5.Y
+                    ZIndex: =4
+
+            Address_DataCard2_5 As typedDataCard.pcfCoreTextualMultiLineEditCard:
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr666_address"
+                Default: =ThisItem.Address
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@Grants_tb_wellbeingGrants],DataSourceInfo.DisplayName,"cr666_address")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =false
+                Update: =DataCardValue37_5.Value
+                Width: =316
+                WidthFit: =true
+                X: =0
+                Y: =3
+                ZIndex: =2
+
+                DataCardKey39_5 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue37_5 As 'Text box'":
+                    AccessibleLabel: =Parent.DisplayName
+                    DisplayMode: =Parent.DisplayMode
+                    FontSize: =10.5
+                    Height: =48
+                    Mode: ="Multiline"
+                    PCFTeamsTheme: ="default"
+                    Required: =Parent.Required
+                    Tooltip: =Parent.DisplayName
+                    Value: =Parent.Default
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey39_5.Y + DataCardKey39_5.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage39_5 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue37_5.Y + DataCardValue37_5.Height
+                    ZIndex: =3
+
+                StarVisible39_5 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey39_5.Y
+                    ZIndex: =4
+
+            "'Cor Name_DataCard2_5' As typedDataCard.pcfCoreTextualEditCard":
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr666_corname"
+                Default: =ThisItem.'Cor Name'
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@Grants_tb_wellbeingGrants],DataSourceInfo.DisplayName,"cr666_corname")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                MaxLength: =DataSourceInfo([@Grants_tb_wellbeingGrants], DataSourceInfo.MaxLength, "cr666_corname")
+                Required: =false
+                Update: =DataCardValue38_5.Value
+                Width: =316
+                WidthFit: =true
+                X: =1
+                Y: =3
+                ZIndex: =2
+
+                DataCardKey40_5 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue38_5 As 'Text box'":
+                    AccessibleLabel: =Parent.DisplayName
+                    DisplayMode: =Parent.DisplayMode
+                    FontSize: =10.5
+                    Height: =32
+                    Mode: ="SingleLine"
+                    PCFTeamsTheme: ="default"
+                    Required: =Parent.Required
+                    Tooltip: =Parent.DisplayName
+                    Value: =Parent.Default
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey40_5.Y + DataCardKey40_5.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage40_5 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue38_5.Y + DataCardValue38_5.Height
+                    ZIndex: =3
+
+                StarVisible40_5 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey40_5.Y
+                    ZIndex: =4
+
+            Position_DataCard2_5 As typedDataCard.pcfCoreTextualEditCard:
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr666_position"
+                Default: =ThisItem.Position
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@Grants_tb_wellbeingGrants],DataSourceInfo.DisplayName,"cr666_position")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                MaxLength: =DataSourceInfo([@Grants_tb_wellbeingGrants], DataSourceInfo.MaxLength, "cr666_position")
+                Required: =false
+                Update: =DataCardValue39_5.Value
+                Width: =316
+                WidthFit: =true
+                X: =2
+                Y: =3
+                ZIndex: =2
+
+                DataCardKey41_5 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue39_5 As 'Text box'":
+                    AccessibleLabel: =Parent.DisplayName
+                    DisplayMode: =Parent.DisplayMode
+                    FontSize: =10.5
+                    Height: =32
+                    Mode: ="SingleLine"
+                    PCFTeamsTheme: ="default"
+                    Required: =Parent.Required
+                    Tooltip: =Parent.DisplayName
+                    Value: =Parent.Default
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey41_5.Y + DataCardKey41_5.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage41_5 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue39_5.Y + DataCardValue39_5.Height
+                    ZIndex: =3
+
+                StarVisible41_5 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey41_5.Y
+                    ZIndex: =4
+
+            Postcode_DataCard2_5 As typedDataCard.pcfCoreTextualEditCard:
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr666_postcode"
+                Default: =ThisItem.Postcode
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@Grants_tb_wellbeingGrants],DataSourceInfo.DisplayName,"cr666_postcode")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                MaxLength: =DataSourceInfo([@Grants_tb_wellbeingGrants], DataSourceInfo.MaxLength, "cr666_postcode")
+                Required: =false
+                Update: =DataCardValue40_5.Value
+                Width: =316
+                WidthFit: =true
+                X: =0
+                Y: =4
+                ZIndex: =2
+
+                DataCardKey42_5 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue40_5 As 'Text box'":
+                    AccessibleLabel: =Parent.DisplayName
+                    DisplayMode: =Parent.DisplayMode
+                    FontSize: =10.5
+                    Height: =32
+                    Mode: ="SingleLine"
+                    PCFTeamsTheme: ="default"
+                    Required: =Parent.Required
+                    Tooltip: =Parent.DisplayName
+                    Value: =Parent.Default
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey42_5.Y + DataCardKey42_5.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage42_5 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue40_5.Y + DataCardValue40_5.Height
+                    ZIndex: =3
+
+                StarVisible42_5 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey42_5.Y
+                    ZIndex: =4
+
+            Telephone_DataCard2_5 As typedDataCard.pcfCoreTextualEditCard:
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr666_telephone"
+                Default: =ThisItem.Telephone
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@Grants_tb_wellbeingGrants],DataSourceInfo.DisplayName,"cr666_telephone")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                MaxLength: =DataSourceInfo([@Grants_tb_wellbeingGrants], DataSourceInfo.MaxLength, "cr666_telephone")
+                Required: =false
+                Update: =DataCardValue41_5.Value
+                Width: =316
+                WidthFit: =true
+                X: =1
+                Y: =4
+                ZIndex: =2
+
+                DataCardKey43_5 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue41_5 As 'Text box'":
+                    AccessibleLabel: =Parent.DisplayName
+                    DisplayMode: =Parent.DisplayMode
+                    FontSize: =10.5
+                    Height: =32
+                    Mode: ="SingleLine"
+                    PCFTeamsTheme: ="default"
+                    Required: =Parent.Required
+                    Tooltip: =Parent.DisplayName
+                    Value: =Parent.Default
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey43_5.Y + DataCardKey43_5.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage43_5 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue41_5.Y + DataCardValue41_5.Height
+                    ZIndex: =3
+
+                StarVisible43_5 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey43_5.Y
+                    ZIndex: =4
+
+            Email_DataCard2_5 As typedDataCard.pcfCoreTextualEditCard:
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr666_email"
+                Default: =ThisItem.Email
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@Grants_tb_wellbeingGrants],DataSourceInfo.DisplayName,"cr666_email")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                MaxLength: =DataSourceInfo([@Grants_tb_wellbeingGrants], DataSourceInfo.MaxLength, "cr666_email")
+                Required: =false
+                Update: =DataCardValue42_5.Value
+                Width: =316
+                WidthFit: =true
+                X: =2
+                Y: =4
+                ZIndex: =2
+
+                DataCardKey44_5 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue42_5 As 'Text box'":
+                    AccessibleLabel: =Parent.DisplayName
+                    DisplayMode: =Parent.DisplayMode
+                    FontSize: =10.5
+                    Height: =32
+                    Mode: ="SingleLine"
+                    PCFTeamsTheme: ="default"
+                    Required: =Parent.Required
+                    Tooltip: =Parent.DisplayName
+                    Value: =Parent.Default
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey44_5.Y + DataCardKey44_5.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage44_5 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue42_5.Y + DataCardValue42_5.Height
+                    ZIndex: =3
+
+                StarVisible44_5 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey44_5.Y
+                    ZIndex: =4
+
+            Aims_DataCard2_5 As typedDataCard.pcfCoreTextualMultiLineEditCard:
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr666_aims"
+                Default: =ThisItem.Aims
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@Grants_tb_wellbeingGrants],DataSourceInfo.DisplayName,"cr666_aims")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =false
+                Update: =DataCardValue43_5.Value
+                Width: =316
+                WidthFit: =true
+                X: =0
+                Y: =5
+                ZIndex: =2
+
+                DataCardKey45_5 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue43_5 As 'Text box'":
+                    AccessibleLabel: =Parent.DisplayName
+                    DisplayMode: =Parent.DisplayMode
+                    FontSize: =10.5
+                    Height: =48
+                    Mode: ="Multiline"
+                    PCFTeamsTheme: ="default"
+                    Required: =Parent.Required
+                    Tooltip: =Parent.DisplayName
+                    Value: =Parent.Default
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey45_5.Y + DataCardKey45_5.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage45_5 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue43_5.Y + DataCardValue43_5.Height
+                    ZIndex: =3
+
+                StarVisible45_5 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey45_5.Y
+                    ZIndex: =4
+
+            "'Charity details_DataCard2_5' As typedDataCard.pcfCoreTextualMultiLineEditCard":
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr666_charitydetails"
+                Default: =ThisItem.'Charity details'
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@Grants_tb_wellbeingGrants],DataSourceInfo.DisplayName,"cr666_charitydetails")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =false
+                Update: =DataCardValue44_5.Value
+                Width: =316
+                WidthFit: =true
+                X: =1
+                Y: =5
+                ZIndex: =2
+
+                DataCardKey46_5 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue44_5 As 'Text box'":
+                    AccessibleLabel: =Parent.DisplayName
+                    DisplayMode: =Parent.DisplayMode
+                    FontSize: =10.5
+                    Height: =48
+                    Mode: ="Multiline"
+                    PCFTeamsTheme: ="default"
+                    Required: =Parent.Required
+                    Tooltip: =Parent.DisplayName
+                    Value: =Parent.Default
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey46_5.Y + DataCardKey46_5.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage46_5 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue44_5.Y + DataCardValue44_5.Height
+                    ZIndex: =3
+
+                StarVisible46_5 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey46_5.Y
+                    ZIndex: =4
+
+            "'Catchment area covered_DataCard2_5' As typedDataCard.pcfCoreTextualMultiLineEditCard":
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr666_catchmentareacovered"
+                Default: =ThisItem.'Catchment area covered'
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@Grants_tb_wellbeingGrants],DataSourceInfo.DisplayName,"cr666_catchmentareacovered")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =false
+                Update: =DataCardValue45_5.Value
+                Width: =316
+                WidthFit: =true
+                X: =2
+                Y: =5
+                ZIndex: =2
+
+                DataCardKey47_5 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue45_5 As 'Text box'":
+                    AccessibleLabel: =Parent.DisplayName
+                    DisplayMode: =Parent.DisplayMode
+                    FontSize: =10.5
+                    Height: =48
+                    Mode: ="Multiline"
+                    PCFTeamsTheme: ="default"
+                    Required: =Parent.Required
+                    Tooltip: =Parent.DisplayName
+                    Value: =Parent.Default
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey47_5.Y + DataCardKey47_5.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage47_5 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue45_5.Y + DataCardValue45_5.Height
+                    ZIndex: =3
+
+                StarVisible47_5 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey47_5.Y
+                    ZIndex: =4
+
+            isVAT_DataCard2_5 As typedDataCard.pcfCoreComboBoxOptionSetSingleEditCard:
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr666_isvat"
+                Default: =ThisItem.isVAT
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@Grants_tb_wellbeingGrants],DataSourceInfo.DisplayName,"cr666_isvat")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =false
+                Update: =DataCardValue46_5.Selected.Value
+                Width: =316
+                WidthFit: =true
+                X: =0
+                Y: =6
+                ZIndex: =2
+
+                DataCardKey48_5 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue46_5 As combobox:
+                    AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                    BorderColor: =RGBA(243, 242, 241, 1)
+                    ChevronBackground: =RGBA(243, 242, 241, 1)
+                    ChevronDisabledBackground: =RGBA(243, 242, 241, 1)
+                    ChevronDisabledFill: =RGBA(200, 198, 196, 1)
+                    ChevronFill: =RGBA(96, 94, 92, 1)
+                    ChevronHoverBackground: =RGBA(243, 242, 241, 1)
+                    ChevronHoverFill: =RGBA(96, 94, 92, 1)
+                    Color: =RGBA(37, 36, 35, 1)
+                    DefaultSelectedItems: =[Parent.Default]
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(200, 198, 196, 1)
+                    DisabledFill: =RGBA(243, 242, 241, 1)
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Fill: =RGBA(243, 242, 241, 1)
+                    FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                    FocusedBorderThickness: =2
+                    Font: =Font.'Segoe UI'
+                    Height: =32
+                    HoverBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    HoverColor: =RGBA(37, 36, 35, 1)
+                    HoverFill: =RGBA(243, 242, 241, 1)
+                    IsSearchable: =false
+                    Items: =Choices('isVAT (Grants_tb_wellbeingGrants)')
+                    PaddingLeft: =12
+                    PressedBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    PressedColor: =RGBA(255, 255, 255, 1)
+                    PressedFill: =RGBA(243, 242, 241, 1)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectionColor: =RGBA(37, 36, 35, 1)
+                    SelectionFill: =RGBA(237, 235, 233, 1)
+                    SelectMultiple: =false
+                    Size: =10.5
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey48_5.Y + DataCardKey48_5.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage48_5 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue46_5.Y + DataCardValue46_5.Height
+                    ZIndex: =3
+
+                StarVisible48_5 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =20
+                    PCFTeamsTheme: ="default"
+                    Text: ="*"
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey48_5.Y
+                    ZIndex: =4
+
+            "'Residents benefit_DataCard2_5' As typedDataCard.pcfCoreTextualMultiLineEditCard":
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr666_residentsbenefit"
+                Default: =ThisItem.'Residents benefit'
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@Grants_tb_wellbeingGrants],DataSourceInfo.DisplayName,"cr666_residentsbenefit")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =false
+                Update: =DataCardValue47_5.Value
+                Width: =316
+                WidthFit: =true
+                X: =1
+                Y: =6
+                ZIndex: =2
+
+                DataCardKey49_5 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue47_5 As 'Text box'":
+                    AccessibleLabel: =Parent.DisplayName
+                    DisplayMode: =Parent.DisplayMode
+                    FontSize: =10.5
+                    Height: =48
+                    Mode: ="Multiline"
+                    PCFTeamsTheme: ="default"
+                    Required: =Parent.Required
+                    Tooltip: =Parent.DisplayName
+                    Value: =Parent.Default
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey49_5.Y + DataCardKey49_5.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage49_5 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue47_5.Y + DataCardValue47_5.Height
+                    ZIndex: =3
+
+                StarVisible49_5 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey49_5.Y
+                    ZIndex: =4
+
+            "'Grant purpose_DataCard2_5' As typedDataCard.pcfCoreTextualMultiLineEditCard":
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr666_grantpurpose"
+                Default: =ThisItem.'Grant purpose'
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@Grants_tb_wellbeingGrants],DataSourceInfo.DisplayName,"cr666_grantpurpose")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =false
+                Update: =DataCardValue48_5.Value
+                Width: =316
+                WidthFit: =true
+                X: =2
+                Y: =6
+                ZIndex: =2
+
+                DataCardKey50_5 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue48_5 As 'Text box'":
+                    AccessibleLabel: =Parent.DisplayName
+                    DisplayMode: =Parent.DisplayMode
+                    FontSize: =10.5
+                    Height: =48
+                    Mode: ="Multiline"
+                    PCFTeamsTheme: ="default"
+                    Required: =Parent.Required
+                    Tooltip: =Parent.DisplayName
+                    Value: =Parent.Default
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey50_5.Y + DataCardKey50_5.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage50_5 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue48_5.Y + DataCardValue48_5.Height
+                    ZIndex: =3
+
+                StarVisible50_5 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey50_5.Y
+                    ZIndex: =4
+
+            "'Address of project_DataCard2_5' As typedDataCard.pcfCoreTextualMultiLineEditCard":
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr666_addressofproject"
+                Default: =ThisItem.'Address of project'
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@Grants_tb_wellbeingGrants],DataSourceInfo.DisplayName,"cr666_addressofproject")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =false
+                Update: =DataCardValue49_5.Value
+                Width: =316
+                WidthFit: =true
+                X: =0
+                Y: =7
+                ZIndex: =2
+
+                DataCardKey51_5 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue49_5 As 'Text box'":
+                    AccessibleLabel: =Parent.DisplayName
+                    DisplayMode: =Parent.DisplayMode
+                    FontSize: =10.5
+                    Height: =48
+                    Mode: ="Multiline"
+                    PCFTeamsTheme: ="default"
+                    Required: =Parent.Required
+                    Tooltip: =Parent.DisplayName
+                    Value: =Parent.Default
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey51_5.Y + DataCardKey51_5.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage51_5 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue49_5.Y + DataCardValue49_5.Height
+                    ZIndex: =3
+
+                StarVisible51_5 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey51_5.Y
+                    ZIndex: =4
+
+            "'VAT number_DataCard2_5' As typedDataCard.pcfCoreTextualEditCard":
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr666_vatnumber"
+                Default: =ThisItem.'VAT number'
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@Grants_tb_wellbeingGrants],DataSourceInfo.DisplayName,"cr666_vatnumber")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                MaxLength: =DataSourceInfo([@Grants_tb_wellbeingGrants], DataSourceInfo.MaxLength, "cr666_vatnumber")
+                Required: =false
+                Update: =DataCardValue50_5.Value
+                Width: =316
+                WidthFit: =true
+                X: =1
+                Y: =7
+                ZIndex: =2
+
+                DataCardKey52_5 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue50_5 As 'Text box'":
+                    AccessibleLabel: =Parent.DisplayName
+                    DisplayMode: =Parent.DisplayMode
+                    FontSize: =10.5
+                    Height: =32
+                    Mode: ="SingleLine"
+                    PCFTeamsTheme: ="default"
+                    Required: =Parent.Required
+                    Tooltip: =Parent.DisplayName
+                    Value: =Parent.Default
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey52_5.Y + DataCardKey52_5.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage52_5 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue50_5.Y + DataCardValue50_5.Height
+                    ZIndex: =3
+
+                StarVisible52_5 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey52_5.Y
+                    ZIndex: =4
+
+            "'Project start date_DataCard2_5' As typedDataCard.pcfCoreDateTimeEditCard":
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr666_projectstartdate"
+                Default: =ThisItem.'Project start date'
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@Grants_tb_wellbeingGrants],DataSourceInfo.DisplayName,"cr666_projectstartdate")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =false
+                Update: =Date(Year(DateValue3_5.Value), Month(DateValue3_5.Value), Day(DateValue3_5.Value)) + Time(Value(HourValue3_5.Selected.Value), Value(MinuteValue3_5.Selected.Value), Value(Second(DateValue3_5.Value)))
+                Width: =316
+                WidthFit: =true
+                X: =2
+                Y: =7
+                ZIndex: =2
+
+                DataCardKey53_5 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DateValue3_5 As 'Date picker'":
+                    AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =32
+                    PCFTeamsTheme: ="default"
+                    Tooltip: =Parent.DisplayName
+                    Value: =Parent.Default
+                    Width: =(Parent.Width - 48) / 2
+                    X: =24
+                    Y: =DataCardKey53_5.Y + DataCardKey53_5.Height + 4
+                    ZIndex: =2
+
+                HourValue3_5 As combobox:
+                    BorderColor: =RGBA(243, 242, 241, 1)
+                    ChevronBackground: =RGBA(243, 242, 241, 1)
+                    ChevronDisabledBackground: =RGBA(243, 242, 241, 1)
+                    ChevronDisabledFill: =RGBA(200, 198, 196, 1)
+                    ChevronFill: =RGBA(96, 94, 92, 1)
+                    ChevronHoverBackground: =RGBA(243, 242, 241, 1)
+                    ChevronHoverFill: =RGBA(96, 94, 92, 1)
+                    Color: =RGBA(37, 36, 35, 1)
+                    DefaultSelectedItems: =[Text(Hour(Parent.Default),"00")]
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(200, 198, 196, 1)
+                    DisabledFill: =RGBA(243, 242, 241, 1)
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Fill: =RGBA(243, 242, 241, 1)
+                    FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                    FocusedBorderThickness: =2
+                    Font: =Font.'Segoe UI'
+                    Height: =28
+                    HoverBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    HoverColor: =RGBA(37, 36, 35, 1)
+                    HoverFill: =RGBA(243, 242, 241, 1)
+                    IsSearchable: =false
+                    Items: =["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23"]
+                    PaddingLeft: =12
+                    PressedBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    PressedColor: =RGBA(255, 255, 255, 1)
+                    PressedFill: =RGBA(243, 242, 241, 1)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectionColor: =RGBA(37, 36, 35, 1)
+                    SelectionFill: =RGBA(237, 235, 233, 1)
+                    SelectMultiple: =false
+                    Size: =10.5
+                    Tooltip: =Parent.DisplayName
+                    Width: =DateValue3_5.Width / 2 - 10
+                    X: =DateValue3_5.X + DateValue3_5.Width + 10
+                    Y: =DateValue3_5.Y + 1
+                    ZIndex: =3
+
+                Separator3_5 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =10.5
+                    Height: =HourValue3_5.Height
+                    PCFTeamsTheme: ="default"
+                    Text: |-
+                        =":"
+                    VerticalAlignment: =VerticalAlign.Middle
+                    Width: =10
+                    X: =HourValue3_5.X + HourValue3_5.Width
+                    Y: =HourValue3_5.Y
+                    ZIndex: =4
+
+                MinuteValue3_5 As combobox:
+                    BorderColor: =RGBA(243, 242, 241, 1)
+                    ChevronBackground: =RGBA(243, 242, 241, 1)
+                    ChevronDisabledBackground: =RGBA(243, 242, 241, 1)
+                    ChevronDisabledFill: =RGBA(200, 198, 196, 1)
+                    ChevronFill: =RGBA(96, 94, 92, 1)
+                    ChevronHoverBackground: =RGBA(243, 242, 241, 1)
+                    ChevronHoverFill: =RGBA(96, 94, 92, 1)
+                    Color: =RGBA(37, 36, 35, 1)
+                    DefaultSelectedItems: =[Text(Minute(Parent.Default),"00")]
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(200, 198, 196, 1)
+                    DisabledFill: =RGBA(243, 242, 241, 1)
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Fill: =RGBA(243, 242, 241, 1)
+                    FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                    FocusedBorderThickness: =2
+                    Font: =Font.'Segoe UI'
+                    Height: =28
+                    HoverBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    HoverColor: =RGBA(37, 36, 35, 1)
+                    HoverFill: =RGBA(243, 242, 241, 1)
+                    IsSearchable: =false
+                    Items: =["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59"]
+                    PaddingLeft: =12
+                    PressedBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    PressedColor: =RGBA(255, 255, 255, 1)
+                    PressedFill: =RGBA(243, 242, 241, 1)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectionColor: =RGBA(37, 36, 35, 1)
+                    SelectionFill: =RGBA(237, 235, 233, 1)
+                    SelectMultiple: =false
+                    Size: =10.5
+                    Tooltip: =Parent.DisplayName
+                    Width: =HourValue3_5.Width
+                    X: =HourValue3_5.X + HourValue3_5.Width + Separator3_5.Width
+                    Y: =HourValue3_5.Y + 1
+                    ZIndex: =5
+
+                ErrorMessage53_5 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DateValue3_5.Y + DateValue3_5.Height
+                    ZIndex: =6
+
+                StarVisible53_5 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =20
+                    PCFTeamsTheme: ="default"
+                    Text: ="*"
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey53_5.Y
+                    ZIndex: =7
+
+            "'End date_DataCard2_5' As typedDataCard.pcfCoreDateTimeEditCard":
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr666_enddate"
+                Default: =ThisItem.'End date'
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@Grants_tb_wellbeingGrants],DataSourceInfo.DisplayName,"cr666_enddate")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =false
+                Update: =Date(Year(DateValue4_5.Value), Month(DateValue4_5.Value), Day(DateValue4_5.Value)) + Time(Value(HourValue4_5.Selected.Value), Value(MinuteValue4_5.Selected.Value), Value(Second(DateValue4_5.Value)))
+                Width: =316
+                WidthFit: =true
+                X: =0
+                Y: =8
+                ZIndex: =2
+
+                DataCardKey54_5 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DateValue4_5 As 'Date picker'":
+                    AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =32
+                    PCFTeamsTheme: ="default"
+                    Tooltip: =Parent.DisplayName
+                    Value: =Parent.Default
+                    Width: =(Parent.Width - 48) / 2
+                    X: =24
+                    Y: =DataCardKey54_5.Y + DataCardKey54_5.Height + 4
+                    ZIndex: =2
+
+                HourValue4_5 As combobox:
+                    BorderColor: =RGBA(243, 242, 241, 1)
+                    ChevronBackground: =RGBA(243, 242, 241, 1)
+                    ChevronDisabledBackground: =RGBA(243, 242, 241, 1)
+                    ChevronDisabledFill: =RGBA(200, 198, 196, 1)
+                    ChevronFill: =RGBA(96, 94, 92, 1)
+                    ChevronHoverBackground: =RGBA(243, 242, 241, 1)
+                    ChevronHoverFill: =RGBA(96, 94, 92, 1)
+                    Color: =RGBA(37, 36, 35, 1)
+                    DefaultSelectedItems: =[Text(Hour(Parent.Default),"00")]
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(200, 198, 196, 1)
+                    DisabledFill: =RGBA(243, 242, 241, 1)
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Fill: =RGBA(243, 242, 241, 1)
+                    FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                    FocusedBorderThickness: =2
+                    Font: =Font.'Segoe UI'
+                    Height: =28
+                    HoverBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    HoverColor: =RGBA(37, 36, 35, 1)
+                    HoverFill: =RGBA(243, 242, 241, 1)
+                    IsSearchable: =false
+                    Items: =["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23"]
+                    PaddingLeft: =12
+                    PressedBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    PressedColor: =RGBA(255, 255, 255, 1)
+                    PressedFill: =RGBA(243, 242, 241, 1)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectionColor: =RGBA(37, 36, 35, 1)
+                    SelectionFill: =RGBA(237, 235, 233, 1)
+                    SelectMultiple: =false
+                    Size: =10.5
+                    Tooltip: =Parent.DisplayName
+                    Width: =DateValue4_5.Width / 2 - 10
+                    X: =DateValue4_5.X + DateValue4_5.Width + 10
+                    Y: =DateValue4_5.Y + 1
+                    ZIndex: =3
+
+                Separator4_5 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =10.5
+                    Height: =HourValue4_5.Height
+                    PCFTeamsTheme: ="default"
+                    Text: |-
+                        =":"
+                    VerticalAlignment: =VerticalAlign.Middle
+                    Width: =10
+                    X: =HourValue4_5.X + HourValue4_5.Width
+                    Y: =HourValue4_5.Y
+                    ZIndex: =4
+
+                MinuteValue4_5 As combobox:
+                    BorderColor: =RGBA(243, 242, 241, 1)
+                    ChevronBackground: =RGBA(243, 242, 241, 1)
+                    ChevronDisabledBackground: =RGBA(243, 242, 241, 1)
+                    ChevronDisabledFill: =RGBA(200, 198, 196, 1)
+                    ChevronFill: =RGBA(96, 94, 92, 1)
+                    ChevronHoverBackground: =RGBA(243, 242, 241, 1)
+                    ChevronHoverFill: =RGBA(96, 94, 92, 1)
+                    Color: =RGBA(37, 36, 35, 1)
+                    DefaultSelectedItems: =[Text(Minute(Parent.Default),"00")]
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(200, 198, 196, 1)
+                    DisabledFill: =RGBA(243, 242, 241, 1)
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Fill: =RGBA(243, 242, 241, 1)
+                    FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                    FocusedBorderThickness: =2
+                    Font: =Font.'Segoe UI'
+                    Height: =28
+                    HoverBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    HoverColor: =RGBA(37, 36, 35, 1)
+                    HoverFill: =RGBA(243, 242, 241, 1)
+                    IsSearchable: =false
+                    Items: =["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59"]
+                    PaddingLeft: =12
+                    PressedBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    PressedColor: =RGBA(255, 255, 255, 1)
+                    PressedFill: =RGBA(243, 242, 241, 1)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectionColor: =RGBA(37, 36, 35, 1)
+                    SelectionFill: =RGBA(237, 235, 233, 1)
+                    SelectMultiple: =false
+                    Size: =10.5
+                    Tooltip: =Parent.DisplayName
+                    Width: =HourValue4_5.Width
+                    X: =HourValue4_5.X + HourValue4_5.Width + Separator4_5.Width
+                    Y: =HourValue4_5.Y + 1
+                    ZIndex: =5
+
+                ErrorMessage54_5 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DateValue4_5.Y + DateValue4_5.Height
+                    ZIndex: =6
+
+                StarVisible54_5 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =20
+                    PCFTeamsTheme: ="default"
+                    Text: ="*"
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey54_5.Y
+                    ZIndex: =7
+
+            "'VAT cost_DataCard2_5' As typedDataCard.pcfCoreNumberEditCard":
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr666_vatcost"
+                Default: =ThisItem.'VAT cost'
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@Grants_tb_wellbeingGrants],DataSourceInfo.DisplayName,"cr666_vatcost")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =false
+                Update: =Value(DataCardValue51_5.Text)
+                Width: =316
+                WidthFit: =true
+                X: =1
+                Y: =8
+                ZIndex: =2
+
+                DataCardKey55_5 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue51_5 As text:
+                    AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                    BorderColor: =RGBA(243, 242, 241, 1)
+                    BorderThickness: =0
+                    Color: =RGBA(37, 36, 35, 1)
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(200, 198, 196, 1)
+                    DisabledFill: =RGBA(243, 242, 241, 1)
+                    DisplayMode: =Parent.DisplayMode
+                    Fill: =RGBA(243, 242, 241, 1)
+                    FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                    FocusedBorderThickness: =2
+                    Font: =Font.'Segoe UI'
+                    Format: =TextFormat.Number
+                    Height: =32
+                    HoverBorderColor: =RGBA(243, 242, 241, 1)
+                    HoverColor: =RGBA(37, 36, 35, 1)
+                    HoverFill: =RGBA(243, 242, 241, 1)
+                    PaddingBottom: =4
+                    PaddingRight: =12
+                    PaddingTop: =0
+                    PressedBorderColor: =RGBA(98, 100, 167, 1)
+                    PressedColor: =RGBA(37, 36, 35, 1)
+                    PressedFill: =RGBA(243, 242, 241, 1)
+                    RadiusBottomLeft: =3
+                    RadiusBottomRight: =3
+                    RadiusTopLeft: =3
+                    RadiusTopRight: =3
+                    Size: =10.5
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey55_5.Y + DataCardKey55_5.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage55_5 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue51_5.Y + DataCardValue51_5.Height
+                    ZIndex: =3
+
+                StarVisible55_5 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey55_5.Y
+                    ZIndex: =4
+
+            "'Cost breakdown_DataCard2_5' As typedDataCard.pcfCoreTextualMultiLineEditCard":
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr666_costbreakdown"
+                Default: =ThisItem.'Cost breakdown'
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@Grants_tb_wellbeingGrants],DataSourceInfo.DisplayName,"cr666_costbreakdown")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =false
+                Update: =DataCardValue52_5.Value
+                Width: =316
+                WidthFit: =true
+                X: =2
+                Y: =8
+                ZIndex: =2
+
+                DataCardKey56_5 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue52_5 As 'Text box'":
+                    AccessibleLabel: =Parent.DisplayName
+                    DisplayMode: =Parent.DisplayMode
+                    FontSize: =10.5
+                    Height: =48
+                    Mode: ="Multiline"
+                    PCFTeamsTheme: ="default"
+                    Required: =Parent.Required
+                    Tooltip: =Parent.DisplayName
+                    Value: =Parent.Default
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey56_5.Y + DataCardKey56_5.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage56_5 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue52_5.Y + DataCardValue52_5.Height
+                    ZIndex: =3
+
+                StarVisible56_5 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey56_5.Y
+                    ZIndex: =4
+
+            "'Total cost_DataCard2_5' As typedDataCard.pcfCoreNumberEditCard":
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr666_totalcost"
+                Default: =ThisItem.'Total cost'
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@Grants_tb_wellbeingGrants],DataSourceInfo.DisplayName,"cr666_totalcost")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =false
+                Update: =Value(DataCardValue53_5.Text)
+                Width: =316
+                WidthFit: =true
+                X: =0
+                Y: =9
+                ZIndex: =2
+
+                DataCardKey57_5 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue53_5 As text:
+                    AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                    BorderColor: =RGBA(243, 242, 241, 1)
+                    BorderThickness: =0
+                    Color: =RGBA(37, 36, 35, 1)
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(200, 198, 196, 1)
+                    DisabledFill: =RGBA(243, 242, 241, 1)
+                    DisplayMode: =Parent.DisplayMode
+                    Fill: =RGBA(243, 242, 241, 1)
+                    FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                    FocusedBorderThickness: =2
+                    Font: =Font.'Segoe UI'
+                    Format: =TextFormat.Number
+                    Height: =32
+                    HoverBorderColor: =RGBA(243, 242, 241, 1)
+                    HoverColor: =RGBA(37, 36, 35, 1)
+                    HoverFill: =RGBA(243, 242, 241, 1)
+                    PaddingBottom: =4
+                    PaddingRight: =12
+                    PaddingTop: =0
+                    PressedBorderColor: =RGBA(98, 100, 167, 1)
+                    PressedColor: =RGBA(37, 36, 35, 1)
+                    PressedFill: =RGBA(243, 242, 241, 1)
+                    RadiusBottomLeft: =3
+                    RadiusBottomRight: =3
+                    RadiusTopLeft: =3
+                    RadiusTopRight: =3
+                    Size: =10.5
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey57_5.Y + DataCardKey57_5.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage57_5 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue53_5.Y + DataCardValue53_5.Height
+                    ZIndex: =3
+
+                StarVisible57_5 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey57_5.Y
+                    ZIndex: =4
+
+            "'Funds available_DataCard2_5' As typedDataCard.pcfCoreNumberEditCard":
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr666_fundsavailable"
+                Default: =ThisItem.'Funds available'
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@Grants_tb_wellbeingGrants],DataSourceInfo.DisplayName,"cr666_fundsavailable")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =false
+                Update: =Value(DataCardValue54_5.Text)
+                Width: =316
+                WidthFit: =true
+                X: =1
+                Y: =9
+                ZIndex: =2
+
+                DataCardKey58_5 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue54_5 As text:
+                    AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                    BorderColor: =RGBA(243, 242, 241, 1)
+                    BorderThickness: =0
+                    Color: =RGBA(37, 36, 35, 1)
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(200, 198, 196, 1)
+                    DisabledFill: =RGBA(243, 242, 241, 1)
+                    DisplayMode: =Parent.DisplayMode
+                    Fill: =RGBA(243, 242, 241, 1)
+                    FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                    FocusedBorderThickness: =2
+                    Font: =Font.'Segoe UI'
+                    Format: =TextFormat.Number
+                    Height: =32
+                    HoverBorderColor: =RGBA(243, 242, 241, 1)
+                    HoverColor: =RGBA(37, 36, 35, 1)
+                    HoverFill: =RGBA(243, 242, 241, 1)
+                    PaddingBottom: =4
+                    PaddingRight: =12
+                    PaddingTop: =0
+                    PressedBorderColor: =RGBA(98, 100, 167, 1)
+                    PressedColor: =RGBA(37, 36, 35, 1)
+                    PressedFill: =RGBA(243, 242, 241, 1)
+                    RadiusBottomLeft: =3
+                    RadiusBottomRight: =3
+                    RadiusTopLeft: =3
+                    RadiusTopRight: =3
+                    Size: =10.5
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey58_5.Y + DataCardKey58_5.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage58_5 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue54_5.Y + DataCardValue54_5.Height
+                    ZIndex: =3
+
+                StarVisible58_5 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey58_5.Y
+                    ZIndex: =4
+
+            "'Funds from events_DataCard2_5' As typedDataCard.pcfCoreNumberEditCard":
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr666_fundsfromevents"
+                Default: =ThisItem.'Funds from events'
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@Grants_tb_wellbeingGrants],DataSourceInfo.DisplayName,"cr666_fundsfromevents")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =false
+                Update: =Value(DataCardValue55_5.Text)
+                Width: =316
+                WidthFit: =true
+                X: =2
+                Y: =9
+                ZIndex: =2
+
+                DataCardKey59_5 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue55_5 As text:
+                    AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                    BorderColor: =RGBA(243, 242, 241, 1)
+                    BorderThickness: =0
+                    Color: =RGBA(37, 36, 35, 1)
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(200, 198, 196, 1)
+                    DisabledFill: =RGBA(243, 242, 241, 1)
+                    DisplayMode: =Parent.DisplayMode
+                    Fill: =RGBA(243, 242, 241, 1)
+                    FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                    FocusedBorderThickness: =2
+                    Font: =Font.'Segoe UI'
+                    Format: =TextFormat.Number
+                    Height: =32
+                    HoverBorderColor: =RGBA(243, 242, 241, 1)
+                    HoverColor: =RGBA(37, 36, 35, 1)
+                    HoverFill: =RGBA(243, 242, 241, 1)
+                    PaddingBottom: =4
+                    PaddingRight: =12
+                    PaddingTop: =0
+                    PressedBorderColor: =RGBA(98, 100, 167, 1)
+                    PressedColor: =RGBA(37, 36, 35, 1)
+                    PressedFill: =RGBA(243, 242, 241, 1)
+                    RadiusBottomLeft: =3
+                    RadiusBottomRight: =3
+                    RadiusTopLeft: =3
+                    RadiusTopRight: =3
+                    Size: =10.5
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey59_5.Y + DataCardKey59_5.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage59_5 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue55_5.Y + DataCardValue55_5.Height
+                    ZIndex: =3
+
+                StarVisible59_5 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey59_5.Y
+                    ZIndex: =4
+
+            "'Grant requested_DataCard2_5' As typedDataCard.pcfCoreNumberEditCard":
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr666_grantrequested"
+                Default: =ThisItem.'Grant requested'
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@Grants_tb_wellbeingGrants],DataSourceInfo.DisplayName,"cr666_grantrequested")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =false
+                Update: =Value(DataCardValue56_5.Text)
+                Width: =316
+                WidthFit: =true
+                X: =0
+                Y: =10
+                ZIndex: =2
+
+                DataCardKey60_5 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue56_5 As text:
+                    AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                    BorderColor: =RGBA(243, 242, 241, 1)
+                    BorderThickness: =0
+                    Color: =RGBA(37, 36, 35, 1)
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(200, 198, 196, 1)
+                    DisabledFill: =RGBA(243, 242, 241, 1)
+                    DisplayMode: =Parent.DisplayMode
+                    Fill: =RGBA(243, 242, 241, 1)
+                    FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                    FocusedBorderThickness: =2
+                    Font: =Font.'Segoe UI'
+                    Format: =TextFormat.Number
+                    Height: =32
+                    HoverBorderColor: =RGBA(243, 242, 241, 1)
+                    HoverColor: =RGBA(37, 36, 35, 1)
+                    HoverFill: =RGBA(243, 242, 241, 1)
+                    PaddingBottom: =4
+                    PaddingRight: =12
+                    PaddingTop: =0
+                    PressedBorderColor: =RGBA(98, 100, 167, 1)
+                    PressedColor: =RGBA(37, 36, 35, 1)
+                    PressedFill: =RGBA(243, 242, 241, 1)
+                    RadiusBottomLeft: =3
+                    RadiusBottomRight: =3
+                    RadiusTopLeft: =3
+                    RadiusTopRight: =3
+                    Size: =10.5
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey60_5.Y + DataCardKey60_5.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage60_5 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue56_5.Y + DataCardValue56_5.Height
+                    ZIndex: =3
+
+                StarVisible60_5 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey60_5.Y
+                    ZIndex: =4
+
+            "'Total funding_DataCard2_5' As typedDataCard.pcfCoreNumberEditCard":
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr666_totalfunding"
+                Default: =ThisItem.'Total funding'
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@Grants_tb_wellbeingGrants],DataSourceInfo.DisplayName,"cr666_totalfunding")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =false
+                Update: =Value(DataCardValue57_5.Text)
+                Width: =316
+                WidthFit: =true
+                X: =1
+                Y: =10
+                ZIndex: =2
+
+                DataCardKey61_5 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue57_5 As text:
+                    AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                    BorderColor: =RGBA(243, 242, 241, 1)
+                    BorderThickness: =0
+                    Color: =RGBA(37, 36, 35, 1)
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(200, 198, 196, 1)
+                    DisabledFill: =RGBA(243, 242, 241, 1)
+                    DisplayMode: =Parent.DisplayMode
+                    Fill: =RGBA(243, 242, 241, 1)
+                    FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                    FocusedBorderThickness: =2
+                    Font: =Font.'Segoe UI'
+                    Format: =TextFormat.Number
+                    Height: =32
+                    HoverBorderColor: =RGBA(243, 242, 241, 1)
+                    HoverColor: =RGBA(37, 36, 35, 1)
+                    HoverFill: =RGBA(243, 242, 241, 1)
+                    PaddingBottom: =4
+                    PaddingRight: =12
+                    PaddingTop: =0
+                    PressedBorderColor: =RGBA(98, 100, 167, 1)
+                    PressedColor: =RGBA(37, 36, 35, 1)
+                    PressedFill: =RGBA(243, 242, 241, 1)
+                    RadiusBottomLeft: =3
+                    RadiusBottomRight: =3
+                    RadiusTopLeft: =3
+                    RadiusTopRight: =3
+                    Size: =10.5
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey61_5.Y + DataCardKey61_5.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage61_5 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue57_5.Y + DataCardValue57_5.Height
+                    ZIndex: =3
+
+                StarVisible61_5 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey61_5.Y
+                    ZIndex: =4
+
+            "'Savings held_DataCard2_5' As typedDataCard.pcfCoreTextualMultiLineEditCard":
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr666_savingsheld"
+                Default: =ThisItem.'Savings held'
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@Grants_tb_wellbeingGrants],DataSourceInfo.DisplayName,"cr666_savingsheld")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =false
+                Update: =DataCardValue58_5.Value
+                Width: =316
+                WidthFit: =true
+                X: =2
+                Y: =10
+                ZIndex: =2
+
+                DataCardKey62_5 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue58_5 As 'Text box'":
+                    AccessibleLabel: =Parent.DisplayName
+                    DisplayMode: =Parent.DisplayMode
+                    FontSize: =10.5
+                    Height: =48
+                    Mode: ="Multiline"
+                    PCFTeamsTheme: ="default"
+                    Required: =Parent.Required
+                    Tooltip: =Parent.DisplayName
+                    Value: =Parent.Default
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey62_5.Y + DataCardKey62_5.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage62_5 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue58_5.Y + DataCardValue58_5.Height
+                    ZIndex: =3
+
+                StarVisible62_5 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey62_5.Y
+                    ZIndex: =4
+
+            "'Applied elsewhere_DataCard2_5' As typedDataCard.pcfCoreComboBoxOptionSetSingleEditCard":
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr666_appliedelsewhere"
+                Default: =ThisItem.'Applied elsewhere'
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@Grants_tb_wellbeingGrants],DataSourceInfo.DisplayName,"cr666_appliedelsewhere")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =false
+                Update: =DataCardValue59_5.Selected.Value
+                Width: =316
+                WidthFit: =true
+                X: =0
+                Y: =11
+                ZIndex: =2
+
+                DataCardKey63_5 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue59_5 As combobox:
+                    AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                    BorderColor: =RGBA(243, 242, 241, 1)
+                    ChevronBackground: =RGBA(243, 242, 241, 1)
+                    ChevronDisabledBackground: =RGBA(243, 242, 241, 1)
+                    ChevronDisabledFill: =RGBA(200, 198, 196, 1)
+                    ChevronFill: =RGBA(96, 94, 92, 1)
+                    ChevronHoverBackground: =RGBA(243, 242, 241, 1)
+                    ChevronHoverFill: =RGBA(96, 94, 92, 1)
+                    Color: =RGBA(37, 36, 35, 1)
+                    DefaultSelectedItems: =[Parent.Default]
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(200, 198, 196, 1)
+                    DisabledFill: =RGBA(243, 242, 241, 1)
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Fill: =RGBA(243, 242, 241, 1)
+                    FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                    FocusedBorderThickness: =2
+                    Font: =Font.'Segoe UI'
+                    Height: =32
+                    HoverBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    HoverColor: =RGBA(37, 36, 35, 1)
+                    HoverFill: =RGBA(243, 242, 241, 1)
+                    IsSearchable: =false
+                    Items: =Choices('Applied elsewhere (Grants_tb_wellbeingGrants)')
+                    PaddingLeft: =12
+                    PressedBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    PressedColor: =RGBA(255, 255, 255, 1)
+                    PressedFill: =RGBA(243, 242, 241, 1)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectionColor: =RGBA(37, 36, 35, 1)
+                    SelectionFill: =RGBA(237, 235, 233, 1)
+                    SelectMultiple: =false
+                    Size: =10.5
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey63_5.Y + DataCardKey63_5.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage63_5 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue59_5.Y + DataCardValue59_5.Height
+                    ZIndex: =3
+
+                StarVisible63_5 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =20
+                    PCFTeamsTheme: ="default"
+                    Text: ="*"
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey63_5.Y
+                    ZIndex: =4
+
+            "'Reason for not applying elsewhere_DataCard2_5' As typedDataCard.pcfCoreTextualMultiLineEditCard":
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr666_reasonfornotapplyingelsewhere"
+                Default: =ThisItem.'Reason for not applying elsewhere'
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@Grants_tb_wellbeingGrants],DataSourceInfo.DisplayName,"cr666_reasonfornotapplyingelsewhere")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =false
+                Update: =DataCardValue60_5.Value
+                Width: =316
+                WidthFit: =true
+                X: =1
+                Y: =11
+                ZIndex: =2
+
+                DataCardKey64_5 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue60_5 As 'Text box'":
+                    AccessibleLabel: =Parent.DisplayName
+                    DisplayMode: =Parent.DisplayMode
+                    FontSize: =10.5
+                    Height: =48
+                    Mode: ="Multiline"
+                    PCFTeamsTheme: ="default"
+                    Required: =Parent.Required
+                    Tooltip: =Parent.DisplayName
+                    Value: =Parent.Default
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey64_5.Y + DataCardKey64_5.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage64_5 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue60_5.Y + DataCardValue60_5.Height
+                    ZIndex: =3
+
+                StarVisible64_5 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey64_5.Y
+                    ZIndex: =4
+
+            "'Grants from other orgs_DataCard2_5' As typedDataCard.pcfCoreTextualMultiLineEditCard":
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr666_grantsfromotherorgs"
+                Default: =ThisItem.'Grants from other orgs'
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@Grants_tb_wellbeingGrants],DataSourceInfo.DisplayName,"cr666_grantsfromotherorgs")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =false
+                Update: =DataCardValue61_5.Value
+                Width: =316
+                WidthFit: =true
+                X: =2
+                Y: =11
+                ZIndex: =2
+
+                DataCardKey65_5 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue61_5 As 'Text box'":
+                    AccessibleLabel: =Parent.DisplayName
+                    DisplayMode: =Parent.DisplayMode
+                    FontSize: =10.5
+                    Height: =48
+                    Mode: ="Multiline"
+                    PCFTeamsTheme: ="default"
+                    Required: =Parent.Required
+                    Tooltip: =Parent.DisplayName
+                    Value: =Parent.Default
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey65_5.Y + DataCardKey65_5.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage65_5 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue61_5.Y + DataCardValue61_5.Height
+                    ZIndex: =3
+
+                StarVisible65_5 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey65_5.Y
+                    ZIndex: =4
+
+            "'Received grant before_DataCard2_5' As typedDataCard.pcfCoreComboBoxOptionSetSingleEditCard":
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr666_receivedgrantbefore"
+                Default: =ThisItem.'Received grant before'
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@Grants_tb_wellbeingGrants],DataSourceInfo.DisplayName,"cr666_receivedgrantbefore")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =false
+                Update: =DataCardValue62_5.Selected.Value
+                Width: =316
+                WidthFit: =true
+                X: =0
+                Y: =12
+                ZIndex: =2
+
+                DataCardKey66_5 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue62_5 As combobox:
+                    AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                    BorderColor: =RGBA(243, 242, 241, 1)
+                    ChevronBackground: =RGBA(243, 242, 241, 1)
+                    ChevronDisabledBackground: =RGBA(243, 242, 241, 1)
+                    ChevronDisabledFill: =RGBA(200, 198, 196, 1)
+                    ChevronFill: =RGBA(96, 94, 92, 1)
+                    ChevronHoverBackground: =RGBA(243, 242, 241, 1)
+                    ChevronHoverFill: =RGBA(96, 94, 92, 1)
+                    Color: =RGBA(37, 36, 35, 1)
+                    DefaultSelectedItems: =[Parent.Default]
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(200, 198, 196, 1)
+                    DisabledFill: =RGBA(243, 242, 241, 1)
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Fill: =RGBA(243, 242, 241, 1)
+                    FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                    FocusedBorderThickness: =2
+                    Font: =Font.'Segoe UI'
+                    Height: =32
+                    HoverBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    HoverColor: =RGBA(37, 36, 35, 1)
+                    HoverFill: =RGBA(243, 242, 241, 1)
+                    IsSearchable: =false
+                    Items: =Choices('Received grant before (Grants_tb_wellbeingGrants)')
+                    PaddingLeft: =12
+                    PressedBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    PressedColor: =RGBA(255, 255, 255, 1)
+                    PressedFill: =RGBA(243, 242, 241, 1)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectionColor: =RGBA(37, 36, 35, 1)
+                    SelectionFill: =RGBA(237, 235, 233, 1)
+                    SelectMultiple: =false
+                    Size: =10.5
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey66_5.Y + DataCardKey66_5.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage66_5 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue62_5.Y + DataCardValue62_5.Height
+                    ZIndex: =3
+
+                StarVisible66_5 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =20
+                    PCFTeamsTheme: ="default"
+                    Text: ="*"
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey66_5.Y
+                    ZIndex: =4
+
+            "'previous grant details_DataCard2_5' As typedDataCard.pcfCoreTextualMultiLineEditCard":
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr666_previousgrantdetails"
+                Default: =ThisItem.'previous grant details'
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@Grants_tb_wellbeingGrants],DataSourceInfo.DisplayName,"cr666_previousgrantdetails")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =false
+                Update: =DataCardValue63_5.Value
+                Width: =316
+                WidthFit: =true
+                X: =1
+                Y: =12
+                ZIndex: =2
+
+                DataCardKey67_5 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue63_5 As 'Text box'":
+                    AccessibleLabel: =Parent.DisplayName
+                    DisplayMode: =Parent.DisplayMode
+                    FontSize: =10.5
+                    Height: =48
+                    Mode: ="Multiline"
+                    PCFTeamsTheme: ="default"
+                    Required: =Parent.Required
+                    Tooltip: =Parent.DisplayName
+                    Value: =Parent.Default
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey67_5.Y + DataCardKey67_5.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage67_5 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue63_5.Y + DataCardValue63_5.Height
+                    ZIndex: =3
+
+                StarVisible67_5 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey67_5.Y
+                    ZIndex: =4
+
+            "'Organisation on cheque_DataCard2_5' As typedDataCard.pcfCoreTextualEditCard":
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr666_organisationoncheque"
+                Default: =ThisItem.'Organisation on cheque'
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@Grants_tb_wellbeingGrants],DataSourceInfo.DisplayName,"cr666_organisationoncheque")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                MaxLength: =DataSourceInfo([@Grants_tb_wellbeingGrants], DataSourceInfo.MaxLength, "cr666_organisationoncheque")
+                Required: =false
+                Update: =DataCardValue64_5.Value
+                Width: =316
+                WidthFit: =true
+                X: =2
+                Y: =12
+                ZIndex: =2
+
+                DataCardKey68_5 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue64_5 As 'Text box'":
+                    AccessibleLabel: =Parent.DisplayName
+                    DisplayMode: =Parent.DisplayMode
+                    FontSize: =10.5
+                    Height: =32
+                    Mode: ="SingleLine"
+                    PCFTeamsTheme: ="default"
+                    Required: =Parent.Required
+                    Tooltip: =Parent.DisplayName
+                    Value: =Parent.Default
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey68_5.Y + DataCardKey68_5.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage68_5 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue64_5.Y + DataCardValue64_5.Height
+                    ZIndex: =3
+
+                StarVisible68_5 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey68_5.Y
+                    ZIndex: =4
+
+            "'How org is funded_DataCard2_5' As typedDataCard.pcfCoreTextualMultiLineEditCard":
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr666_howorgisfunded"
+                Default: =ThisItem.'How org is funded'
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@Grants_tb_wellbeingGrants],DataSourceInfo.DisplayName,"cr666_howorgisfunded")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =false
+                Update: =DataCardValue65_5.Value
+                Width: =316
+                WidthFit: =true
+                X: =0
+                Y: =13
+                ZIndex: =2
+
+                DataCardKey69_5 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue65_5 As 'Text box'":
+                    AccessibleLabel: =Parent.DisplayName
+                    DisplayMode: =Parent.DisplayMode
+                    FontSize: =10.5
+                    Height: =48
+                    Mode: ="Multiline"
+                    PCFTeamsTheme: ="default"
+                    Required: =Parent.Required
+                    Tooltip: =Parent.DisplayName
+                    Value: =Parent.Default
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey69_5.Y + DataCardKey69_5.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage69_5 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue65_5.Y + DataCardValue65_5.Height
+                    ZIndex: =3
+
+                StarVisible69_5 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey69_5.Y
+                    ZIndex: =4
+
+            "'Total number who are beneficiaries_DataCard2_5' As typedDataCard.pcfCoreTextualEditCard":
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr666_totalnumberwhoarebeneficiaries"
+                Default: =ThisItem.'Total number who are beneficiaries'
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@Grants_tb_wellbeingGrants],DataSourceInfo.DisplayName,"cr666_totalnumberwhoarebeneficiaries")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                MaxLength: =DataSourceInfo([@Grants_tb_wellbeingGrants], DataSourceInfo.MaxLength, "cr666_totalnumberwhoarebeneficiaries")
+                Required: =false
+                Update: =DataCardValue66_5.Value
+                Width: =316
+                WidthFit: =true
+                X: =1
+                Y: =13
+                ZIndex: =2
+
+                DataCardKey70_5 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue66_5 As 'Text box'":
+                    AccessibleLabel: =Parent.DisplayName
+                    DisplayMode: =Parent.DisplayMode
+                    FontSize: =10.5
+                    Height: =32
+                    Mode: ="SingleLine"
+                    PCFTeamsTheme: ="default"
+                    Required: =Parent.Required
+                    Tooltip: =Parent.DisplayName
+                    Value: =Parent.Default
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey70_5.Y + DataCardKey70_5.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage70_5 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue66_5.Y + DataCardValue66_5.Height
+                    ZIndex: =3
+
+                StarVisible70_5 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey70_5.Y
+                    ZIndex: =4
+
+            "'Total number of residents_DataCard2_5' As typedDataCard.pcfCoreTextualEditCard":
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr666_totalnumberofresidents"
+                Default: =ThisItem.'Total number of residents'
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@Grants_tb_wellbeingGrants],DataSourceInfo.DisplayName,"cr666_totalnumberofresidents")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                MaxLength: =DataSourceInfo([@Grants_tb_wellbeingGrants], DataSourceInfo.MaxLength, "cr666_totalnumberofresidents")
+                Required: =false
+                Update: =DataCardValue67_5.Value
+                Width: =316
+                WidthFit: =true
+                X: =2
+                Y: =13
+                ZIndex: =2
+
+                DataCardKey71_5 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue67_5 As 'Text box'":
+                    AccessibleLabel: =Parent.DisplayName
+                    DisplayMode: =Parent.DisplayMode
+                    FontSize: =10.5
+                    Height: =32
+                    Mode: ="SingleLine"
+                    PCFTeamsTheme: ="default"
+                    Required: =Parent.Required
+                    Tooltip: =Parent.DisplayName
+                    Value: =Parent.Default
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey71_5.Y + DataCardKey71_5.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage71_5 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue67_5.Y + DataCardValue67_5.Height
+                    ZIndex: =3
+
+                StarVisible71_5 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey71_5.Y
+                    ZIndex: =4
+
+            "'Justify request for grant_DataCard2_5' As typedDataCard.pcfCoreTextualMultiLineEditCard":
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr666_justifyrequestforgrant"
+                Default: =ThisItem.'Justify request for grant'
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@Grants_tb_wellbeingGrants],DataSourceInfo.DisplayName,"cr666_justifyrequestforgrant")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =false
+                Update: =DataCardValue68_5.Value
+                Width: =316
+                WidthFit: =true
+                X: =0
+                Y: =14
+                ZIndex: =2
+
+                DataCardKey72_5 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue68_5 As 'Text box'":
+                    AccessibleLabel: =Parent.DisplayName
+                    DisplayMode: =Parent.DisplayMode
+                    FontSize: =10.5
+                    Height: =48
+                    Mode: ="Multiline"
+                    PCFTeamsTheme: ="default"
+                    Required: =Parent.Required
+                    Tooltip: =Parent.DisplayName
+                    Value: =Parent.Default
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey72_5.Y + DataCardKey72_5.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage72_5 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue68_5.Y + DataCardValue68_5.Height
+                    ZIndex: =3
+
+                StarVisible72_5 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey72_5.Y
+                    ZIndex: =4
+
+            "'Grant Type_DataCard1_5' As typedDataCard.pcfCoreComboBoxOptionSetSingleEditCard":
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr666_granttype"
+                Default: =If(GeneralGrantsFRM_5.Mode = FormMode.New,GrantTypes.Wellbeing ,ThisItem.'Grant Type')
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@Grants_tb_wellbeingGrants],DataSourceInfo.DisplayName,"cr666_granttype")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =false
+                Update: =DataCardValue69_5.Selected.Value
+                Width: =316
+                WidthFit: =true
+                X: =0
+                Y: =15
+                ZIndex: =2
+
+                DataCardKey73_5 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue69_5 As combobox:
+                    AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                    BorderColor: =RGBA(243, 242, 241, 1)
+                    ChevronBackground: =RGBA(243, 242, 241, 1)
+                    ChevronDisabledBackground: =RGBA(243, 242, 241, 1)
+                    ChevronDisabledFill: =RGBA(200, 198, 196, 1)
+                    ChevronFill: =RGBA(96, 94, 92, 1)
+                    ChevronHoverBackground: =RGBA(243, 242, 241, 1)
+                    ChevronHoverFill: =RGBA(96, 94, 92, 1)
+                    Color: =RGBA(37, 36, 35, 1)
+                    DefaultSelectedItems: =[Parent.Default]
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(200, 198, 196, 1)
+                    DisabledFill: =RGBA(243, 242, 241, 1)
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Fill: =RGBA(243, 242, 241, 1)
+                    FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                    FocusedBorderThickness: =2
+                    Font: =Font.'Segoe UI'
+                    Height: =32
+                    HoverBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    HoverColor: =RGBA(37, 36, 35, 1)
+                    HoverFill: =RGBA(243, 242, 241, 1)
+                    IsSearchable: =false
+                    Items: =Choices(GrantTypes)
+                    PaddingLeft: =12
+                    PressedBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    PressedColor: =RGBA(255, 255, 255, 1)
+                    PressedFill: =RGBA(243, 242, 241, 1)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectionColor: =RGBA(37, 36, 35, 1)
+                    SelectionFill: =RGBA(237, 235, 233, 1)
+                    SelectMultiple: =false
+                    Size: =10.5
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey73_5.Y + DataCardKey73_5.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage73_5 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: ="default"
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue69_5.Y + DataCardValue69_5.Height
+                    ZIndex: =3
+
+                StarVisible73_5 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =20
+                    PCFTeamsTheme: ="default"
+                    Text: ="*"
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey73_5.Y
+                    ZIndex: =4
+
+    PdfViewer2_4 As pdfViewer:
+        Document: =First(DataCardValue96_5.Attachments).Value
+        Height: =Parent.Height - Self.Y
+        ShowControls: =true
+        Visible: =showPDF
+        Width: =Parent.Width
+        Y: =header_page_3.Height + header_page_3.Y
+        ZIndex: =5
+
+    ButtonCanvas1_4 As Button:
+        Appearance: ='ButtonCanvas.Appearance'.Secondary
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        OnSelect: |-
+            =UpdateContext({showPDF:false})
+        PCFTeamsTheme: ="default"
+        Text: ="Close"
+        Visible: =PdfViewer2_4.Visible
+        Width: =70
+        X: =Parent.Width - Self.Width - 110
+        Y: =74
+        ZIndex: =6
+
+    blank_rec_2 As blank_rec:
+        Height: =57
+        SaveButton: ="Text"
+        SaveProgressButton: ="Text"
+        Y: =60
+        ZIndex: =7
+
+    Label4_1 As Label:
+        Color: =RGBA(255, 255, 255, 1)
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        PCFTeamsTheme: ="default"
+        Text: ="Search Wellbeing Grants"
+        Visible: |
+            =If(IsBlank(TextInputSearch_1.Text), true, false)
+        Width: =320
+        X: =23
+        Y: =74
+        ZIndex: =8
+
+    TextInputSearch_1 As text:
+        BorderColor: =RGBA(255, 255, 255, 1)
+        BorderThickness: =2
+        Color: =RGBA(255, 255, 255, 1)
+        Default: =""
+        DisabledBorderColor: =RGBA(159, 167, 165, 1)
+        DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+        DisabledFill: =ColorFade(RGBA(159, 167, 165, 1), 50%)
+        EnableSpellCheck: =true
+        Fill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Font: =Font.Lato
+        HintText: =" "
+        HoverBorderColor: =RGBA(101, 128, 187, 1)
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =ColorFade(RGBA(190, 202, 226, 0), 30%)
+        PressedBorderColor: =TextInputSearch_1.HoverBorderColor
+        PressedColor: =TextInputSearch_1.Color
+        PressedFill: =TextInputSearch_1.Fill
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Reset: =
+        Size: =11
+        Width: =328
+        X: =9
+        Y: =70
+        ZIndex: =9
+
+    wellSortIC_15 As icon.ArrowsUpDown:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =RGBA(243, 242, 241, 1)
+        DisabledColor: =RGBA(220, 220, 220, 1)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        Height: =TextInputSearch_1.Height
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =ColorFade(Self.Color, -30%)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Icon: =Icon.Sort
+        OnSelect: |-
+            =UpdateContext({ASCGrantSORDER: !ASCGrantSORDER})
+        PaddingBottom: =3
+        PaddingLeft: =3
+        PaddingRight: =3
+        PaddingTop: =3
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Width: =32
+        X: =393
+        Y: =70
+        ZIndex: =10
+
+    wellSortIC_16 As icon.ArrowsUpDown:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =RGBA(243, 242, 241, 1)
+        DisabledColor: =RGBA(220, 220, 220, 1)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        Height: =TextInputSearch_1.Height
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =ColorFade(Self.Color, -30%)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Icon: =Icon.Reload
+        OnSelect: =Refresh(Grants_tb_sportGrants); Refresh(Grants_tb_wellbeingGrants)
+        PaddingBottom: =3
+        PaddingLeft: =3
+        PaddingRight: =3
+        PaddingTop: =3
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Width: =32
+        X: =349
+        Y: =70
+        ZIndex: =11
+
+    Label6_1 As Label:
+        Alignment: =Align.Right
+        Color: =RGBA(255, 255, 255, 1)
+        DisplayMode: =DisplayMode.Edit
+        Font: =Font.'Open Sans'
+        FontSize: =14
+        Height: =40
+        PCFTeamsTheme: ="default"
+        Text: =User().FullName
+        Width: =320
+        X: =1034
+        Y: =70
+        ZIndex: =12
+
+    bottom_page_3 As bottom_page:
+        ButtonTitle: ="Save"
+        SaveButton: =SubmitForm(GeneralGrantsFRM_5)
+        SaveProgressButton: ="Text"
+        Y: =708
+        ZIndex: =13
+
+    header_page_3 As header_page:
+        OnSelect: =Navigate(Home)
+        PageName: ="Viewing Wellbeing Grants"
+        ZIndex: =14
+
+    Rectangle6 As rectangle:
+        BorderColor: =RGBA(243, 242, 241, 1)
+        BorderStyle: =BorderStyle.None
+        DisabledFill: =RGBA(200, 198, 196, 1)
+        Fill: =LookUp(colColorScheme,Name="Main_colour",Colour)
+        FocusedBorderColor: =RGBA(98, 100, 167, 1)
+        Height: =60
+        HoverFill: =RGBA(98, 100, 167, 1)
+        PressedFill: =RGBA(98, 100, 167, 1)
+        Width: =241
+        X: =914
+        Y: =708
+        ZIndex: =15
+
+    WellbeingGY_8 As gallery.galleryVertical:
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Default: =//First(Self.AllItems)
+        Height: =590
+        Items: |
+            =
+            
+            Search(SortByColumns(Filter(Grants_tb_wellbeingGrants,'Grant Type' = GrantTypes.Wellbeing,'Application status' = ApplicationStatus.Reviewing), "createdon", If(ASCGrantSORDER, SortOrder.Ascending, SortOrder.Descending)),
+            
+            TextInputSearch_1.Text,"cr666_name")
+        Layout: =Layout.Vertical
+        ShowScrollbar: =false
+        TemplatePadding: =2
+        TemplateSize: =66
+        Width: =337
+        Y: =118
+        ZIndex: =16
+
+        Rectangle14_10 As rectangle:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Parent.TemplateHeight
+            OnSelect: |
+                =false
+            Width: =333
+            ZIndex: =1
+
+        Label4_24 As label:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =25
+            OnSelect: =
+            PaddingLeft: =8
+            Size: =11
+            Text: =ThisItem.Name
+            Width: =282
+            X: =8
+            Y: =5
+            ZIndex: =2
+
+        Label4_25 As label:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =25
+            OnSelect: =
+            PaddingLeft: =8
+            Size: =10
+            Text: =ThisItem.Telephone
+            Width: =180
+            X: =8
+            Y: =Label4_26.Y
+            ZIndex: =3
+
+        Label4_26 As label:
+            Align: =Align.Right
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =23
+            OnSelect: =
+            PaddingLeft: =8
+            Size: =10
+            Text: =ThisItem.'Created On'
+            Width: =156
+            X: =128
+            Y: =40
+            ZIndex: =4
+
+        Rectangle8_7 As rectangle:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =Parent.TemplateHeight
+            OnSelect: |-
+                =EditForm(GeneralGrantsFRM_5);
+                UpdateContext({ReviewCompleteDate:ThisItem.'Review Complete Date'})
+            Width: =333
+            ZIndex: =6
+
+        Rectangle4_8 As rectangle:
+            BorderColor: =RGBA(101, 128, 187, 1)
+            DisabledFill: =Rectangle4_8.Fill
+            Fill: =RGBA(230, 230, 230, 1)
+            Height: =3
+            HoverFill: =Rectangle4_8.Fill
+            PressedFill: =Rectangle4_8.Fill
+            TabIndex: =0
+            Width: =333
+            Y: =63
+            ZIndex: =8
+
+    Settings_15 As Settings:
+        Visible: =showMenu
+        X: =App.Width - Self.Width
+        Y: =blank_rec_2.Height + blank_rec_2.Y
+        ZIndex: =17
+

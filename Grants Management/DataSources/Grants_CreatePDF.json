@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "7dd2c879-0f85-46fc-b364-e402d2cca447",
+    "Name": "Grants_CreatePDF",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": "cd8c2696-7525-ee11-9965-000d3a27d95f"
+  }
+]

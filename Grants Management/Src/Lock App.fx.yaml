@@ -1,0 +1,27 @@
+"'Lock App' As screen":
+    Fill: =LookUp(colColorScheme,Name="bg_Primary",color)
+    LoadingSpinnerColor: =RGBA(98, 100, 167, 1)
+    OnHidden: |-
+        =UpdateContext({showMenu:false})
+
+    header_page_7 As header_page:
+        OnSelect: ="Text"
+        OnSelectHamburger: =
+        PageName: ="Lock Screen"
+
+    HtmlText1_1 As htmlViewer:
+        Height: =164
+        HtmlText: |+
+            ="<center><b>Your trial period for this App has expired </b><br><br> To continue using this App visit the <a href ='https://www.cloudyit.co.uk/your-council-app-suite/'>CloudyIT website </a> to purchase a subscription.</center>"
+            
+        Size: =19
+        Width: =App.Width
+        Y: =240
+        ZIndex: =1
+
+    blank_rec_5 As blank_rec:
+        SaveButton: ="Text"
+        SaveProgressButton: ="Text"
+        Y: =708
+        ZIndex: =3
+

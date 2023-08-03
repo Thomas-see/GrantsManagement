@@ -1,0 +1,138 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cr666_grants_tb_sportgrants",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cr666_grants_tb_sportgrant",
+    "MaxGetRowsCount": 2000,
+    "Name": "Grants_tb_sportGrants",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cr666_address": "Address",
+      "cr666_amountrequiredfromcouncil": "Amount required from council",
+      "cr666_applicantrelationshiptosportsperson": "Applicant Relationship to sports person",
+      "cr666_application": "Application",
+      "cr666_applicationstatus": "Application Status",
+      "cr666_appliedtootherbodies": "Applied to other bodies ",
+      "cr666_coraddress": "Cor address",
+      "cr666_coremail": "Cor email",
+      "cr666_corname": "Cor name",
+      "cr666_corpostcode": "Cor postcode",
+      "cr666_cortelephone": "Cor telephone",
+      "cr666_declarationemail": "Declaration Email",
+      "cr666_declarationname": "Declaration Name",
+      "cr666_delarationphone": "Delaration phone",
+      "cr666_grants_tb_sportgrant_AsyncOperations": "System Jobs",
+      "cr666_grants_tb_sportgrant_BulkDeleteFailures": "Bulk Delete Failures",
+      "cr666_grants_tb_sportgrant_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cr666_grants_tb_sportgrant_ProcessSession": "Process Sessions",
+      "cr666_grants_tb_sportgrantid": "Grants_tb_sportGrant",
+      "cr666_howtheremainderwillbefound": "How the remainder will be found",
+      "cr666_justifyrequestforgrant": "Justify request for grant",
+      "cr666_name": "Name",
+      "cr666_nameforcheque": "Name for cheque",
+      "cr666_postcode": "Postcode",
+      "cr666_relationshiptoapplicant": "Relationship to applicant",
+      "cr666_requestedfinancialassistance": "Requested financial assistance",
+      "cr666_reviewer": "Reviewer",
+      "cr666_reviewernotes": "Reviewer notes",
+      "cr666_sportsaims": "Sports aims",
+      "cr666_telephone": "Telephone",
+      "cr666_totalamountsportwillcost": "Total amount sport will cost",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Grants_tb_sportGrants",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Grants_tb_sportGrants (Views)",
+    "Name": "_cr666_grants_tb_sportgrant_views",
+    "RelatedEntityName": "Grants_tb_sportGrants",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "1c9dcdf6-ce5f-47aa-b37e-23c0d7e633b0": "Inactive Grants_tb_sportGrants",
+      "7204aeec-3982-4c8f-8ac0-3f90bbf0f121": "Active Grants_tb_sportGrants",
+      "7eb769b0-1987-465b-91e5-49a3f4c4c087": "Grants_tb_sportGrant Associated View",
+      "838c9161-097a-4c13-a908-f4a4ea9771e5": "Grants_tb_sportGrant Advanced Find View",
+      "dccff014-bc9f-424c-acfd-4de847eef576": "Grants_tb_sportGrant Lookup View"
+    }
+  },
+  {
+    "DisplayName": "Applied to other bodies  (Grants_tb_sportGrants)",
+    "Name": "cr666_grants_tb_sportgrant_cr666_appliedtootherbodies",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cr666_appliedtootherbodies",
+        "OptionSetReferenceEntityName": "Grants_tb_sportGrants"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "cr666_appliedtootherbodies",
+    "RelatedEntityName": "Grants_tb_sportGrants",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (Grants_tb_sportGrants)",
+    "Name": "cr666_grants_tb_sportgrant_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Grants_tb_sportGrants"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Grants_tb_sportGrants",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Grants_tb_sportGrants)",
+    "Name": "cr666_grants_tb_sportgrant_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Grants_tb_sportGrants"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Grants_tb_sportGrants",
+    "Type": "OptionSetInfo"
+  }
+]

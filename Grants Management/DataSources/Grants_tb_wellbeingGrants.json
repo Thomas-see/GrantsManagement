@@ -1,0 +1,287 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cr666_grants_tb_wellbeinggrants",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cr666_grants_tb_wellbeinggrant",
+    "MaxGetRowsCount": 2000,
+    "Name": "Grants_tb_wellbeingGrants",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cr666_address": "Address",
+      "cr666_addressofproject": "Address of project",
+      "cr666_aims": "Aims",
+      "cr666_applicationstatus": "Application status",
+      "cr666_appliedelsewhere": "Applied elsewhere",
+      "cr666_attachments": "Attachments",
+      "cr666_catchmentareacovered": "Catchment area covered",
+      "cr666_charitydetails": "Charity details",
+      "cr666_corname": "Cor Name",
+      "cr666_costbreakdown": "Cost breakdown",
+      "cr666_email": "Email",
+      "cr666_enddate": "End date",
+      "cr666_fundsavailable": "Funds available",
+      "cr666_fundsfromevents": "Funds from events",
+      "cr666_grantpurpose": "Grant purpose",
+      "cr666_grantrequested": "Grant requested",
+      "cr666_grants_tb_wellbeinggrant_AsyncOperations": "System Jobs",
+      "cr666_grants_tb_wellbeinggrant_BulkDeleteFailures": "Bulk Delete Failures",
+      "cr666_grants_tb_wellbeinggrant_FileAttachments": "FileAttachments",
+      "cr666_grants_tb_wellbeinggrant_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cr666_grants_tb_wellbeinggrant_ProcessSession": "Process Sessions",
+      "cr666_grants_tb_wellbeinggrantid": "Grants_tb_wellbeingGrant",
+      "cr666_grantsfromotherorgs": "Grants from other orgs",
+      "cr666_granttype": "Grant Type",
+      "cr666_howorgisfunded": "How org is funded",
+      "cr666_ischarity": "isCharity",
+      "cr666_isvat": "isVAT",
+      "cr666_justifyrequestforgrant": "Justify request for grant",
+      "cr666_name": "Name",
+      "cr666_organisationoncheque": "Organisation on cheque",
+      "cr666_position": "Position",
+      "cr666_postcode": "Postcode",
+      "cr666_previousgrantdetails": "previous grant details",
+      "cr666_projectstartdate": "Project start date",
+      "cr666_reasonfornotapplyingelsewhere": "Reason for not applying elsewhere",
+      "cr666_receivedgrantbefore": "Received grant before",
+      "cr666_residentsbenefit": "Residents benefit",
+      "cr666_reviewcompletedate": "Review Complete Date",
+      "cr666_reviewer": "Reviewer",
+      "cr666_reviewernotes": "Reviewer notes",
+      "cr666_reviewerrecommendation": "Reviewer Recommendation",
+      "cr666_reviewstartdate": "Review Start Date",
+      "cr666_savingsheld": "Savings held",
+      "cr666_telephone": "Telephone",
+      "cr666_totalcost": "Total cost",
+      "cr666_totalfunding": "Total funding",
+      "cr666_totalnumberofresidents": "Total number of residents",
+      "cr666_totalnumberwhoarebeneficiaries": "Total number who are beneficiaries",
+      "cr666_vatcost": "VAT cost",
+      "cr666_vatnumber": "VAT number",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Grants_tb_wellbeingGrants",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Grants_tb_wellbeingGrants (Views)",
+    "Name": "_cr666_grants_tb_wellbeinggrant_views",
+    "RelatedEntityName": "Grants_tb_wellbeingGrants",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "17da4b6e-894d-4336-8b51-b1dab357b1e7": "Grants_tb_wellbeingGrant Associated View",
+      "39d7c5c7-201f-42ea-95eb-98e3c50a3da4": "Active Grants_tb_wellbeingGrants",
+      "3cc3f60c-c8c9-4bdd-b548-200fae008bf1": "Grants_tb_wellbeingGrant Lookup View",
+      "5261dc3c-ce84-42c3-803d-03e4ae333dda": "Grants_tb_wellbeingGrant Advanced Find View",
+      "8210fb8d-65a7-494a-99ff-5a25a1a8635f": "Inactive Grants_tb_wellbeingGrants"
+    }
+  },
+  {
+    "DisplayName": "ApplicationStatus",
+    "Name": "cr666_applicationstatus",
+    "OptionSetInfoNameMapping": {
+      "826100000": "Applied",
+      "826100001": "Incomplete application",
+      "826100002": "Reviewing",
+      "826100003": "For future consideration",
+      "826100004": "Approved",
+      "826100005": "Rejected"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cr666_applicationstatus",
+        "OptionSetReferenceEntityName": "Grants_tb_wellbeingGrants"
+      },
+      "OptionSetReferenceItem1": {
+        "OptionSetReferenceColumnName": "cr666_applicationstatus",
+        "OptionSetReferenceEntityName": "Grants_tb_sportGrants"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "cr666_applicationstatus",
+    "RelatedEntityName": "Grants_tb_wellbeingGrants",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Applied elsewhere (Grants_tb_wellbeingGrants)",
+    "Name": "cr666_grants_tb_wellbeinggrant_cr666_appliedelsewhere",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cr666_appliedelsewhere",
+        "OptionSetReferenceEntityName": "Grants_tb_wellbeingGrants"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "cr666_appliedelsewhere",
+    "RelatedEntityName": "Grants_tb_wellbeingGrants",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "isCharity (Grants_tb_wellbeingGrants)",
+    "Name": "cr666_grants_tb_wellbeinggrant_cr666_ischarity",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cr666_ischarity",
+        "OptionSetReferenceEntityName": "Grants_tb_wellbeingGrants"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "cr666_ischarity",
+    "RelatedEntityName": "Grants_tb_wellbeingGrants",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "isVAT (Grants_tb_wellbeingGrants)",
+    "Name": "cr666_grants_tb_wellbeinggrant_cr666_isvat",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cr666_isvat",
+        "OptionSetReferenceEntityName": "Grants_tb_wellbeingGrants"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "cr666_isvat",
+    "RelatedEntityName": "Grants_tb_wellbeingGrants",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Received grant before (Grants_tb_wellbeingGrants)",
+    "Name": "cr666_grants_tb_wellbeinggrant_cr666_receivedgrantbefore",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cr666_receivedgrantbefore",
+        "OptionSetReferenceEntityName": "Grants_tb_wellbeingGrants"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "cr666_receivedgrantbefore",
+    "RelatedEntityName": "Grants_tb_wellbeingGrants",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (Grants_tb_wellbeingGrants)",
+    "Name": "cr666_grants_tb_wellbeinggrant_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Grants_tb_wellbeingGrants"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Grants_tb_wellbeingGrants",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Grants_tb_wellbeingGrants)",
+    "Name": "cr666_grants_tb_wellbeinggrant_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Grants_tb_wellbeingGrants"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Grants_tb_wellbeingGrants",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "GrantTypes",
+    "Name": "cr666_granttypes",
+    "OptionSetInfoNameMapping": {
+      "826100000": "General",
+      "826100001": "Wellbeing"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cr666_granttype",
+        "OptionSetReferenceEntityName": "Grants_tb_wellbeingGrants"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "cr666_granttype",
+    "RelatedEntityName": "Grants_tb_wellbeingGrants",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "ReviewerRecommendation",
+    "Name": "cr666_reviewerrecommendation",
+    "OptionSetInfoNameMapping": {
+      "826100000": "Approve",
+      "826100001": "Reject",
+      "826100002": "Require additional information",
+      "826100003": "Other"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cr666_reviewerrecommendation",
+        "OptionSetReferenceEntityName": "Grants_tb_wellbeingGrants"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "cr666_reviewerrecommendation",
+    "RelatedEntityName": "Grants_tb_wellbeingGrants",
+    "Type": "OptionSetInfo"
+  }
+]
