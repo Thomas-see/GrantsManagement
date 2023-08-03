@@ -1,0 +1,490 @@
+Reports As screen:
+    LoadingSpinnerColor: =RGBA(98, 100, 167, 1)
+    OnHidden: |-
+        =UpdateContext({showMenu:false})
+    OnVisible: |-
+        =UpdateContext({reportType:"approved"})
+
+    TopMenu_11 As TopMenu:
+        Visible: =false
+        Y: =header_page_11.Y+ header_page_11.Height
+        ZIndex: =1
+
+    TrialNotification_12 As TrialNotification:
+        ChildTabPriority: =false
+        EnableChildFocus: =false
+        Message: =//TrialMessage
+        Visible: =false//If(CMSAppData.type = "1" ,true,false)
+        ZIndex: =2
+
+    PdfViewer2_2 As pdfViewer:
+        Document: =pdfFile
+        Height: =Parent.Height - Self.Y
+        ShowControls: =true
+        Visible: =showPDF
+        Width: =Parent.Width
+        Y: =header_page_11.Height + header_page_11.Y
+        ZIndex: =3
+
+    ButtonCanvas1_2 As Button:
+        Appearance: ='ButtonCanvas.Appearance'.Secondary
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        OnSelect: |-
+            =UpdateContext({showPDF:false})
+        PCFTeamsTheme: ="default"
+        Text: ="Close"
+        Visible: =PdfViewer2_2.Visible
+        Width: =70
+        X: =Parent.Width - Self.Width - 110
+        Y: =73
+        ZIndex: =4
+
+    header_page_11 As header_page:
+        OnSelect: =Navigate(Home)
+        PageName: ="Reports"
+        ZIndex: =5
+
+    blank_rec_11 As blank_rec:
+        Fill: =LookUp(colColorScheme,Name="reportcolour",Colour)
+        SaveButton: ="Text"
+        SaveProgressButton: ="Text"
+        Width: =1366
+        Y: =60
+        ZIndex: =6
+
+    bottom_page_8 As bottom_page:
+        Button2Title: ="Approved"
+        ButtonTitle: ="Rejected"
+        SaveButton: |-
+            =UpdateContext({reportType:"rejected"})
+        SaveProgressButton: |-
+            =UpdateContext({reportType:"approved"})
+        Y: =708
+        ZIndex: =7
+
+    Label18_100 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(179, 179, 179, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FontWeight: =FontWeight.Semibold
+        Size: =12
+        Text: ="Title"
+        Width: =160
+        X: =30
+        Y: =69
+        ZIndex: =8
+
+    Label18_101 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(179, 179, 179, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FontWeight: =FontWeight.Semibold
+        Size: =12
+        Text: ="Type"
+        Width: =160
+        X: =190
+        Y: =69
+        ZIndex: =9
+
+    Label18_102 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(179, 179, 179, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FontWeight: =FontWeight.Semibold
+        Size: =12
+        Text: ="Amount"
+        Width: =160
+        X: =350
+        Y: =69
+        ZIndex: =10
+
+    Label18_103 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(179, 179, 179, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FontWeight: =FontWeight.Semibold
+        Size: =12
+        Text: ="Project Date"
+        Width: =160
+        X: =510
+        Y: =69
+        ZIndex: =11
+
+    Label18_104 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(179, 179, 179, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FontWeight: =FontWeight.Semibold
+        Size: =12
+        Text: ="Is Charity"
+        Width: =160
+        X: =670
+        Y: =69
+        ZIndex: =12
+
+    Label18_105 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(179, 179, 179, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FontWeight: =FontWeight.Semibold
+        Size: =12
+        Text: ="Purpose"
+        Width: =160
+        X: =830
+        Y: =69
+        ZIndex: =13
+
+    Label18_106 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(179, 179, 179, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FontWeight: =FontWeight.Semibold
+        Size: =12
+        Text: ="Email"
+        Width: =160
+        X: =990
+        Y: =69
+        ZIndex: =14
+
+    Label18_107 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(179, 179, 179, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FontWeight: =FontWeight.Semibold
+        Size: =12
+        Text: ="Attachment"
+        Width: =160
+        X: =1150
+        Y: =69
+        ZIndex: =15
+
+    LettersListTable_1 As gallery.variableTemplateHeightGallery:
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Height: =582
+        Items: =Filter(Grants_tb_wellbeingGrants,'Application status' = ApplicationStatus.Approved)
+        Layout: =Layout.Vertical
+        OnSelect: =///EditForm(bonfireForm_1)
+        ShowScrollbar: =false
+        TemplatePadding: =2
+        TemplateSize: =68
+        Width: =1366
+        Y: =120
+        ZIndex: =16
+
+        Rectangle14_16 As rectangle:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =68
+            Width: =Parent.TemplateWidth
+            ZIndex: =1
+
+        Label17_107 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Size: =10
+            Text: =ThisItem.Email
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Label18_101.Width
+            X: =Label18_106.X
+            Y: =10
+            ZIndex: =3
+
+        Label17_108 As label:
+            Align: =Align.Center
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Size: =10
+            Text: =ThisItem.'Justify request for grant'
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Label18_105.Width
+            X: =Label18_105.X
+            Y: =10
+            ZIndex: =4
+
+        Label17_109 As label:
+            Align: =Align.Center
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Size: =10
+            Text: =ThisItem.isCharity
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Label18_104.Width
+            X: =Label18_104.X
+            Y: =10
+            ZIndex: =5
+
+        Label17_110 As label:
+            Align: =Align.Center
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Size: =10
+            Text: =Text(ThisItem.'Project start date',"dd/mm/yyyy")
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Label18_103.Width
+            X: =Label18_103.X
+            Y: =10
+            ZIndex: =6
+
+        Label17_111 As label:
+            Align: =Align.Center
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Size: =10
+            Text: =ThisItem.'Total cost'
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Label18_102.Width
+            X: =Label18_102.X
+            Y: =10
+            ZIndex: =7
+
+        Label17_112 As label:
+            Align: =Align.Center
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Size: =10
+            Text: =ThisItem.Name
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Label18_100.Width
+            X: =Label18_100.X
+            Y: =10
+            ZIndex: =8
+
+        Label17_113 As label:
+            Align: =Align.Center
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Size: =10
+            Text: =ThisItem.'Grant Type'
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Label18_101.Width
+            X: =Label18_101.X
+            Y: =10
+            ZIndex: =9
+
+        Icon4 As icon.DocumentPDF:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            Color: =RGBA(98, 100, 167, 1)
+            DisabledBorderColor: =RGBA(243, 242, 241, 1)
+            DisabledColor: =RGBA(220, 220, 220, 1)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =0
+            Height: =Parent.TemplateHeight
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Icon: =Icon.DocumentPDF
+            OnSelect: |-
+                =Select(Parent);
+                UpdateContext({pdfFile:ThisItem.Attachments.Value});
+                UpdateContext({showPDF:true})
+            PaddingBottom: =15
+            PaddingLeft: =15
+            PaddingRight: =15
+            PaddingTop: =15
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            Visible: =If(ThisItem.Attachments.Value = Blank(),false,true)
+            Width: =Label18_107.Width-5
+            X: =Label18_107.X
+            ZIndex: =10
+
+        Rectangle4_3 As rectangle:
+            BorderColor: =RGBA(101, 128, 187, 1)
+            DisabledFill: =Rectangle4_3.Fill
+            Fill: =RGBA(230, 230, 230, 1)
+            Height: =3
+            HoverFill: =Rectangle4_3.Fill
+            PressedFill: =Rectangle4_3.Fill
+            TabIndex: =0
+            Width: =1362
+            Y: =67
+            ZIndex: =11
+
+    rejected As gallery.variableTemplateHeightGallery:
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Height: =582
+        Items: =Filter(Grants_tb_wellbeingGrants,'Application status' = ApplicationStatus.Rejected)
+        Layout: =Layout.Vertical
+        OnSelect: =///EditForm(bonfireForm_1)
+        ShowScrollbar: =false
+        TemplatePadding: =2
+        TemplateSize: =68
+        Visible: =If(reportType="approved", false, true)
+        Width: =1366
+        Y: =123
+        ZIndex: =17
+
+        Rectangle14_17 As rectangle:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =68
+            Width: =Parent.TemplateWidth
+            ZIndex: =1
+
+        Label17_120 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Size: =10
+            Text: =ThisItem.Email
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Label18_101.Width
+            X: =Label18_106.X
+            Y: =10
+            ZIndex: =3
+
+        Label17_119 As label:
+            Align: =Align.Center
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Size: =10
+            Text: =ThisItem.'Justify request for grant'
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Label18_105.Width
+            X: =Label18_105.X
+            Y: =10
+            ZIndex: =4
+
+        Label17_118 As label:
+            Align: =Align.Center
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Size: =10
+            Text: =ThisItem.isCharity
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Label18_104.Width
+            X: =Label18_104.X
+            Y: =10
+            ZIndex: =5
+
+        Label17_117 As label:
+            Align: =Align.Center
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Size: =10
+            Text: =Text(ThisItem.'Project start date',"dd/mm/yyyy")
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Label18_103.Width
+            X: =Label18_103.X
+            Y: =10
+            ZIndex: =6
+
+        Label17_116 As label:
+            Align: =Align.Center
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Size: =10
+            Text: =ThisItem.'Total cost'
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Label18_102.Width
+            X: =Label18_102.X
+            Y: =10
+            ZIndex: =7
+
+        Label17_114 As label:
+            Align: =Align.Center
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Size: =10
+            Text: =ThisItem.Name
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Label18_100.Width
+            X: =Label18_100.X
+            Y: =10
+            ZIndex: =8
+
+        Label17_115 As label:
+            Align: =Align.Center
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Size: =10
+            Text: =ThisItem.'Grant Type'
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Label18_101.Width
+            X: =Label18_101.X
+            Y: =10
+            ZIndex: =9
+
+        Icon4_1 As icon.DocumentPDF:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            Color: =RGBA(98, 100, 167, 1)
+            DisabledBorderColor: =RGBA(243, 242, 241, 1)
+            DisabledColor: =RGBA(220, 220, 220, 1)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =0
+            Height: =Parent.TemplateHeight
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Icon: =Icon.DocumentPDF
+            OnSelect: |-
+                =Select(Parent);
+                UpdateContext({pdfFile:ThisItem.Attachments.Value});
+                UpdateContext({showPDF:true})
+            PaddingBottom: =15
+            PaddingLeft: =15
+            PaddingRight: =15
+            PaddingTop: =15
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            Visible: =If(ThisItem.Attachments.Value = Blank(),false,true)
+            Width: =Label18_107.Width-5
+            X: =Label18_107.X
+            ZIndex: =10
+
+        Rectangle4_4 As rectangle:
+            BorderColor: =RGBA(101, 128, 187, 1)
+            DisabledFill: =Rectangle4_4.Fill
+            Fill: =RGBA(230, 230, 230, 1)
+            Height: =3
+            HoverFill: =Rectangle4_4.Fill
+            PressedFill: =Rectangle4_4.Fill
+            TabIndex: =0
+            Width: =1362
+            Y: =65
+            ZIndex: =11
+
+    Settings_11 As Settings:
+        Visible: =showMenu
+        X: =App.Width - Self.Width
+        Y: =header_page_11.Height + header_page_11.Y
+        ZIndex: =18
+

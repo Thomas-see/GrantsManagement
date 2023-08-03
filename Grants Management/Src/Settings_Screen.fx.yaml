@@ -1,0 +1,105 @@
+Settings_Screen As screen:
+    Fill: =LookUp(colColorScheme,Name="bg_Primary",color)
+    LoadingSpinnerColor: =RGBA(98, 100, 167, 1)
+    OnHidden: |-
+        =UpdateContext({showMenu:false})
+
+    TrialNotification_7 As TrialNotification:
+        ChildTabPriority: =false
+        EnableChildFocus: =false
+        Message: =//TrialMessage
+        Visible: =false//If(CMSAppData.type = "1" ,true,false)
+
+    Label1_8 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Color: =RGBA(60, 60, 59, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        Height: =90
+        Size: =20
+        Text: ="SETTINGS MENU"
+        Width: =Parent.Width
+        Y: =Parent.Height/5
+        ZIndex: =2
+
+    Label1_10 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Color: =RGBA(116, 116, 116, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FontWeight: =FontWeight.Bold
+        Size: =9
+        Text: =licenceMessage
+        Width: =400
+        X: =App.Width - Self.Width
+        Y: =App.Height - Self.Height
+        ZIndex: =3
+
+    Label1_9 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Color: =RGBA(60, 60, 59, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =90
+        Size: =20
+        Text: ="This feature is still under development and will be available in a future release"
+        Width: =Parent.Width
+        Y: =Parent.Height/2.5
+        ZIndex: =4
+
+    blank_rec_4 As blank_rec:
+        SaveButton: ="Text"
+        SaveProgressButton: ="Text"
+        Y: =708
+        ZIndex: =5
+
+    header_page_5 As header_page:
+        OnChangeLogo: =false
+        OnSelect: =Back()
+        PageName: ="Settings Menu"
+        ZIndex: =8
+
+    Settings_8 As Settings:
+        Visible: =showMenu
+        X: =App.Width - Self.Width
+        Y: =header_page_5.Height + header_page_5.Y
+        ZIndex: =9
+
+    Group2_4 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =12
+
+        Circle1_7 As circle:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(60, 60, 59, 1)
+            Height: =55
+            HoverFill: =ColorFade(RGBA(234,91,12, 1), -20%)
+            OnSelect: =Navigate(Home)
+            Width: =55
+            X: =655
+            Y: =710
+            ZIndex: =6
+
+        Icon1_6 As icon.Add:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            Height: =65
+            Icon: =Icon.Home
+            OnSelect: =Navigate(Home)
+            PaddingBottom: =10
+            PaddingLeft: =15
+            PaddingRight: =15
+            PaddingTop: =15
+            Width: =65
+            X: =651
+            Y: =700
+            ZIndex: =7
+

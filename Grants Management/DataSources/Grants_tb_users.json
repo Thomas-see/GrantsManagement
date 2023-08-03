@@ -1,0 +1,115 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cr666_grants_tb_userses",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cr666_grants_tb_users",
+    "MaxGetRowsCount": 2000,
+    "Name": "Grants_tb_users",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cr666_grants_tb_users_AsyncOperations": "System Jobs",
+      "cr666_grants_tb_users_BulkDeleteFailures": "Bulk Delete Failures",
+      "cr666_grants_tb_users_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cr666_grants_tb_users_ProcessSession": "Process Sessions",
+      "cr666_grants_tb_usersid": "Grants_tb_users",
+      "cr666_name": "Name",
+      "cr666_role": "Role",
+      "cr666_User": "User",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Grants_tb_users",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Grants_tb_users (Views)",
+    "Name": "_cr666_grants_tb_users_views",
+    "RelatedEntityName": "Grants_tb_users",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "1c43ea11-5d0e-4a03-a150-1000d8de35eb": "Grants_tb_users Associated View",
+      "32970abf-4138-4854-a316-d08f537c272e": "Active Grants_tb_users",
+      "434fa403-c7b2-46d6-883a-2c70550bcb2a": "Inactive Grants_tb_users",
+      "4620fa82-f788-424b-9c3b-9d486ae38b32": "Grants_tb_users Lookup View",
+      "974c9783-8e6d-4265-8059-1efbe38bf6a0": "Grants_tb_users Advanced Find View"
+    }
+  },
+  {
+    "DisplayName": "GrantRoles",
+    "Name": "cr666_grantroles",
+    "OptionSetInfoNameMapping": {
+      "826100000": "Admin",
+      "826100001": "Reviewer"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cr666_role",
+        "OptionSetReferenceEntityName": "Grants_tb_users"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "cr666_role",
+    "RelatedEntityName": "Grants_tb_users",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (Grants_tb_users)",
+    "Name": "cr666_grants_tb_users_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Grants_tb_users"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Grants_tb_users",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Grants_tb_users)",
+    "Name": "cr666_grants_tb_users_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Grants_tb_users"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Grants_tb_users",
+    "Type": "OptionSetInfo"
+  }
+]

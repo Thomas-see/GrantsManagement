@@ -1,0 +1,157 @@
+Help_Screen As screen:
+    Fill: =LookUp(colColorScheme,Name="bg_Primary",color)
+    LoadingSpinnerColor: =RGBA(98, 100, 167, 1)
+    OnHidden: |-
+        =UpdateContext({showMenu:false})
+
+    TrialNotification_5 As TrialNotification:
+        ChildTabPriority: =false
+        EnableChildFocus: =false
+        Message: =//TrialMessage
+        Visible: =false//If(CMSAppData.type = "1" ,true,false)
+
+    "Gallery2_2 As gallery.'BrowseLayout_Vertical_OneImageTwoColumnVariant_ver4.0'":
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Height: =(Self.TemplateHeight * CountA(Self.AllItems.Name) )/2 +16
+        Items: =HelpItems
+        Layout: =Layout.Vertical
+        OnSelect: |-
+            =//UpdateContext({appURL: Concatenate("/providers/Microsoft.PowerApps/apps/",ThisItem.AppID)});
+            //Launch( appURL )
+        TemplatePadding: =4
+        TemplateSize: =140
+        Width: =1108
+        WrapCount: =2
+        X: =App.Width/2 - Self.Width/2
+        Y: =Label1_3.Height + Label1_3.Y
+        ZIndex: =2
+
+        Button2_1 As button:
+            BorderThickness: =0
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(149, 149, 149, 1)
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Bold
+            Height: =80
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(234,91,12, 1), -20%)
+            OnSelect: |-
+                =If(!IsBlank(ThisItem.URL),
+                Launch( ThisItem.URL ))
+            Size: =17
+            Text: =ThisItem.Name
+            Width: =320
+            X: =Gallery2_2.TemplateWidth/2 - Self.Width/2
+            Y: =Gallery2_2.TemplateHeight/2 - Self.Height/2
+            ZIndex: =1
+
+    Label1_3 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Color: =RGBA(60, 60, 59, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        Height: =90
+        Size: =20
+        Text: ="HELP MENU"
+        Width: =Parent.Width
+        Y: =Parent.Height/5
+        ZIndex: =3
+
+    Label1_4 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Color: =RGBA(116, 116, 116, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FontWeight: =FontWeight.Bold
+        Size: =9
+        Text: =licenceMessage
+        Width: =400
+        X: =App.Width - Self.Width
+        Y: =App.Height - Self.Height
+        ZIndex: =4
+
+    Label8_4 As Label:
+        Alignment: =Align.Center
+        DisplayMode: =DisplayMode.View
+        Height: =96
+        PCFTeamsTheme: ="default"
+        Text: |-
+            ="2022, Cloudy Group Ltd trading as CloudyIT is registered in England and Wales, registered number 04997628 and GB VAT number 916888080.  
+            
+            This application and suite of applications contains information that is privileged, confidential or otherwise protected from disclosure.  They must not be used by, or copied or disclosed to persons other than the intended party.  Any liability (in negligence or otherwise) arising from any third party acting, or refraining from acting, on any information contained in this application is excluded. "
+        Width: =Gallery2_2.Width
+        X: =Gallery2_2.X
+        Y: =Gallery2_2.Y + Gallery2_2.Height
+        ZIndex: =5
+
+    bottom_page_4 As bottom_page:
+        SaveButton: ="Text"
+        SaveProgressButton: ="Text"
+        Y: =708
+        ZIndex: =6
+
+    header_page_4 As header_page:
+        OnChangeLogo: =false
+        OnSelect: =Back()
+        PageName: ="Help Menu"
+        ZIndex: =7
+
+    Rectangle7 As rectangle:
+        BorderColor: =RGBA(243, 242, 241, 1)
+        BorderStyle: =BorderStyle.None
+        DisabledFill: =RGBA(200, 198, 196, 1)
+        Fill: =LookUp(colColorScheme,Name="Main_colour",Colour)
+        FocusedBorderColor: =RGBA(98, 100, 167, 1)
+        Height: =60
+        HoverFill: =RGBA(98, 100, 167, 1)
+        PressedFill: =RGBA(98, 100, 167, 1)
+        Width: =424
+        X: =942
+        Y: =708
+        ZIndex: =8
+
+    Group2 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =10
+
+        Circle1_3 As circle:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(60, 60, 59, 1)
+            Height: =55
+            HoverFill: =ColorFade(RGBA(234,91,12, 1), -20%)
+            OnSelect: =Navigate(Home)
+            Width: =55
+            X: =655
+            Y: =710
+            ZIndex: =9
+
+        Icon1_2 As icon.Add:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            Height: =65
+            Icon: =Icon.Home
+            OnSelect: =Navigate(Home)
+            PaddingBottom: =10
+            PaddingLeft: =15
+            PaddingRight: =15
+            PaddingTop: =15
+            Width: =65
+            X: =651
+            Y: =700
+            ZIndex: =10
+
+    Settings_6 As Settings:
+        Visible: =showMenu
+        X: =App.Width - Self.Width
+        Y: =header_page_4.Height + header_page_4.Y
+        ZIndex: =11
+

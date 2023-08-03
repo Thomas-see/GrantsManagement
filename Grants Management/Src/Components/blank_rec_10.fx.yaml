@@ -1,0 +1,18 @@
+blank_rec_10 As CanvasComponent:
+    SaveButton():
+        ThisProperty:
+            Default: ="Text"
+    SaveProgressButton():
+        ThisProperty:
+            Default: ="Text"
+    BGCOLOUR: =RGBA(0, 0, 0, 1)
+    Button2Title: ="Text"
+    Button2Visible: =true
+    ButtonColor: =RGBA(0, 0, 0, 1)
+    Fill: =
+    Height: =60
+    Width: =Max(App.Width, App.MinScreenWidth)
+    X: =0
+    Y: =0
+    ZIndex: =2
+

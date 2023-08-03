@@ -1,0 +1,630 @@
+Home As screen:
+    Fill: =LookUp(colColorScheme,Name="bg_Primary",color)
+    LoadingSpinnerColor: =RGBA(98, 100, 167, 1)
+    OnHidden: |-
+        =UpdateContext({showMenu:false})
+    OnVisible: |-
+        =ClearCollect(allgrants, {Status:  Blank()});
+        
+        ForAll(Grants_tb_sportGrants, 
+               Collect(allgrants, {Status: 'Application Status', Name: Name, ID: Grants_tb_sportGrant}));
+        
+        ForAll(Filter(Grants_tb_wellbeingGrants,'Grant Type' = GrantTypes.Wellbeing ), 
+               Collect(allgrants, {Status: 'Application status', Name: Name, ID: Grants_tb_wellbeingGrant}));
+        
+        ForAll(Filter(Grants_tb_wellbeingGrants,'Grant Type' = GrantTypes.General ), 
+               Collect(allgrants, {Status: 'Application status', Name: Name, ID: Grants_tb_wellbeingGrant}))
+
+    TopMenu_4 As TopMenu:
+        ClickedFillColour: =LookUp(colColorScheme,Name="NewBTNColour",Colour)
+        FillColour: =LookUp(colColorScheme,Name="NewBTNColour",Colour)
+        Height: =63
+        Y: =header_page_12.Y+ header_page_12.Height
+        ZIndex: =1
+
+    TrialNotification_1 As TrialNotification:
+        ChildTabPriority: =false
+        EnableChildFocus: =false
+        Message: =//TrialMessage
+        Visible: =false//If(CMSAppData.type = "1" ,true,false)
+        ZIndex: =2
+
+    header_page_12 As header_page:
+        OnSelect: =Navigate(Home)
+        PageName: ="Dashboard"
+        ZIndex: =3
+
+    Label6_4 As Label:
+        Alignment: =Align.Right
+        Color: =RGBA(255, 255, 255, 1)
+        DisplayMode: =DisplayMode.Edit
+        Font: =Font.'Open Sans'
+        FontSize: =14
+        Height: =40
+        PCFTeamsTheme: ="default"
+        Text: =User().FullName
+        Width: =320
+        X: =1028
+        Y: =70
+        ZIndex: =4
+
+    blank_rec_12 As blank_rec:
+        SaveButton: ="Text"
+        SaveProgressButton: ="Text"
+        Y: =708
+        ZIndex: =5
+
+    Rectangle2 As rectangle:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        Fill: =RGBA(255, 255, 255, 1)
+        FocusedBorderColor: =RGBA(98, 100, 167, 1)
+        Height: =562
+        HoverFill: =RGBA(0, 0, 0, 0)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Width: =1014
+        X: =340
+        Y: =131
+        ZIndex: =6
+
+    WellbeingGY_10 As gallery.galleryVertical:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Default: =//First(Self.AllItems)
+        Height: =527
+        Items: =Filter(Grants_tb_wellbeingGrants,'Grant Type' = GrantTypes.Wellbeing,'Application status' = ApplicationStatus.Reviewing)
+        Layout: =Layout.Vertical
+        OnSelect: =Navigate('Wellbeing Grants_Review')
+        ShowScrollbar: =false
+        TemplatePadding: =2
+        TemplateSize: =64
+        Width: =336
+        X: =679
+        Y: =166
+        ZIndex: =7
+
+        Rectangle14_11 As rectangle:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Parent.TemplateHeight
+            OnSelect: |
+                =false
+            Width: =333
+            ZIndex: =1
+
+        Label4_30 As label:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =25
+            OnSelect: =
+            PaddingLeft: =8
+            Size: =11
+            Text: =ThisItem.Name
+            Width: =282
+            X: =8
+            Y: =5
+            ZIndex: =2
+
+        Label4_31 As label:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =25
+            OnSelect: =
+            PaddingLeft: =8
+            Size: =10
+            Text: =ThisItem.Telephone
+            Width: =180
+            X: =8
+            Y: =Label4_32.Y
+            ZIndex: =3
+
+        Label4_32 As label:
+            Align: =Align.Right
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =23
+            OnSelect: =
+            PaddingLeft: =8
+            Size: =10
+            Text: =ThisItem.'Created On'
+            Width: =156
+            X: =128
+            Y: =40
+            ZIndex: =4
+
+        Rectangle8_9 As rectangle:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =63
+            OnSelect: |-
+                =EditForm(GeneralGrantsFRM_5);
+                UpdateContext({ReviewCompleteDate:ThisItem.'Review Complete Date'})
+            Width: =333
+            ZIndex: =6
+
+        Rectangle4_16 As rectangle:
+            BorderColor: =RGBA(101, 128, 187, 1)
+            DisabledFill: =Rectangle4_16.Fill
+            Fill: =RGBA(230, 230, 230, 1)
+            Height: =3
+            HoverFill: =Rectangle4_16.Fill
+            PressedFill: =Rectangle4_16.Fill
+            TabIndex: =0
+            Width: =333
+            Y: =63
+            ZIndex: =8
+
+    WellbeingGY_9 As gallery.galleryVertical:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Default: =//First(Self.AllItems)
+        Height: =527
+        Items: =Filter(Grants_tb_wellbeingGrants,'Grant Type' = GrantTypes.General,'Application status' = ApplicationStatus.Reviewing)
+        Layout: =Layout.Vertical
+        OnSelect: =Navigate('General Grants_Review')
+        ShowScrollbar: =false
+        TemplatePadding: =2
+        TemplateSize: =66
+        Width: =336
+        X: =1019
+        Y: =166
+        ZIndex: =8
+
+        Rectangle8_8 As rectangle:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Parent.TemplateHeight
+            OnSelect: |-
+                =EditForm(GeneralGrantsFRM_2);
+                UpdateContext({ReviewCompleteDate:ThisItem.'Review Complete Date'})
+            Width: =333
+            ZIndex: =1
+
+        Rectangle4_15 As rectangle:
+            BorderColor: =RGBA(101, 128, 187, 1)
+            DisabledFill: =Rectangle4_15.Fill
+            Fill: =RGBA(230, 230, 230, 1)
+            Height: =3
+            HoverFill: =Rectangle4_15.Fill
+            PressedFill: =Rectangle4_15.Fill
+            TabIndex: =0
+            Width: =333
+            Y: =63
+            ZIndex: =2
+
+        Label4_27 As label:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(47, 41, 43, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =25
+            OnSelect: =
+            PaddingLeft: =8
+            Size: =11
+            Text: =ThisItem.Name
+            Width: =282
+            X: =8
+            Y: =5
+            ZIndex: =3
+
+        Label4_28 As label:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(47, 41, 43, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =25
+            OnSelect: =
+            PaddingLeft: =8
+            Size: =10
+            Text: =ThisItem.'Application status'
+            Width: =180
+            X: =8
+            Y: =Label4_29.Y
+            ZIndex: =4
+
+        Label4_29 As label:
+            Align: =Align.Right
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(47, 41, 43, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =23
+            OnSelect: =
+            PaddingLeft: =8
+            Size: =10
+            Text: =ThisItem.'Created On'
+            Width: =156
+            X: =128
+            Y: =40
+            ZIndex: =5
+
+    Rectangle4_17 As rectangle:
+        BorderColor: =RGBA(101, 128, 187, 1)
+        DisabledFill: =Rectangle4_17.Fill
+        Fill: =RGBA(230, 230, 230, 1)
+        Height: =562
+        HoverFill: =Rectangle4_17.Fill
+        PressedFill: =Rectangle4_17.Fill
+        TabIndex: =0
+        Width: =3
+        X: =1016
+        Y: =131
+        ZIndex: =9
+
+    TextBox4_17 As label:
+        Color: =RGBA(0,25,83,.8)
+        DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+        Font: =Font.'Lato Black'
+        Height: =24
+        HoverBorderColor: =TextBox4_17.BorderColor
+        HoverColor: =TextBox4_17.Color
+        HoverFill: =TextBox4_17.Fill
+        PressedBorderColor: =TextBox4_17.BorderColor
+        PressedColor: =TextBox4_17.Color
+        PressedFill: =TextBox4_17.Fill
+        Size: =10
+        Text: ="GENERAL GRANTS"
+        Width: =298.8888888888889
+        X: =1031
+        Y: =138
+        ZIndex: =10
+
+    TextBox4_18 As label:
+        Color: =RGBA(0,25,83,.8)
+        DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+        Font: =Font.'Lato Black'
+        Height: =24
+        HoverBorderColor: =TextBox4_18.BorderColor
+        HoverColor: =TextBox4_18.Color
+        HoverFill: =TextBox4_18.Fill
+        PressedBorderColor: =TextBox4_18.BorderColor
+        PressedColor: =TextBox4_18.Color
+        PressedFill: =TextBox4_18.Fill
+        Size: =10
+        Text: ="WELLBEING GRANTS"
+        Width: =298.8888888888889
+        X: =691
+        Y: =138
+        ZIndex: =11
+
+    WellbeingGY_11 As gallery.galleryVertical:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Default: =//First(Self.AllItems)
+        Height: =527
+        Items: =Grants_tb_sportGrants
+        Layout: =Layout.Vertical
+        ShowScrollbar: =false
+        TemplatePadding: =2
+        TemplateSize: =66
+        Width: =336
+        X: =340
+        Y: =166
+        ZIndex: =12
+
+        Rectangle14_13 As rectangle:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Parent.TemplateHeight
+            OnSelect: |
+                =false
+            Width: =332
+            ZIndex: =1
+
+        Label4_33 As label:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =25
+            OnSelect: =
+            PaddingLeft: =8
+            Size: =11
+            Text: =ThisItem.Name
+            Width: =282
+            X: =8
+            Y: =5
+            ZIndex: =2
+
+        Label4_34 As label:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =25
+            OnSelect: =
+            PaddingLeft: =8
+            Size: =10
+            Text: =ThisItem.Telephone
+            Width: =180
+            X: =8
+            Y: =39
+            ZIndex: =3
+
+        Label4_35 As label:
+            Align: =Align.Right
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =23
+            OnSelect: =
+            PaddingLeft: =8
+            Size: =10
+            Text: =ThisItem.'Created On'
+            Width: =156
+            X: =128
+            Y: =40
+            ZIndex: =4
+
+        Rectangle8_10 As rectangle:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =64
+            OnSelect: =
+            Width: =332
+            ZIndex: =6
+
+        Rectangle4_18 As rectangle:
+            BorderColor: =RGBA(101, 128, 187, 1)
+            DisabledFill: =Rectangle4_18.Fill
+            Fill: =RGBA(230, 230, 230, 1)
+            Height: =3
+            HoverFill: =Rectangle4_18.Fill
+            PressedFill: =Rectangle4_18.Fill
+            TabIndex: =0
+            Width: =332
+            Y: =63
+            ZIndex: =8
+
+    Rectangle4_19 As rectangle:
+        BorderColor: =RGBA(101, 128, 187, 1)
+        DisabledFill: =Rectangle4_19.Fill
+        Fill: =RGBA(230, 230, 230, 1)
+        Height: =562
+        HoverFill: =Rectangle4_19.Fill
+        PressedFill: =Rectangle4_19.Fill
+        TabIndex: =0
+        Width: =3
+        X: =676
+        Y: =131
+        ZIndex: =13
+
+    TextBox4_19 As label:
+        Color: =RGBA(0,25,83,.8)
+        DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+        Font: =Font.'Lato Black'
+        Height: =24
+        HoverBorderColor: =TextBox4_19.BorderColor
+        HoverColor: =TextBox4_19.Color
+        HoverFill: =TextBox4_19.Fill
+        PressedBorderColor: =TextBox4_19.BorderColor
+        PressedColor: =TextBox4_19.Color
+        PressedFill: =TextBox4_19.Fill
+        Size: =10
+        Text: ="SPORT GRANTS"
+        Width: =298.8888888888889
+        X: =355
+        Y: =138
+        ZIndex: =14
+
+    TextBox4_20 As label:
+        Color: =RGBA(0,25,83,.8)
+        DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+        Font: =Font.'Lato Black'
+        Height: =24
+        HoverBorderColor: =TextBox4_20.BorderColor
+        HoverColor: =TextBox4_20.Color
+        HoverFill: =TextBox4_20.Fill
+        PressedBorderColor: =TextBox4_20.BorderColor
+        PressedColor: =TextBox4_20.Color
+        PressedFill: =TextBox4_20.Fill
+        Size: =10
+        Text: ="ADDITIONAL INFORMATION"
+        Width: =298.8888888888889
+        X: =23
+        Y: =397
+        ZIndex: =15
+
+    TextBox4_21 As label:
+        Color: =RGBA(0,25,83,.8)
+        DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+        Font: =Font.'Lato Black'
+        Height: =24
+        HoverBorderColor: =TextBox4_21.BorderColor
+        HoverColor: =TextBox4_21.Color
+        HoverFill: =TextBox4_21.Fill
+        PressedBorderColor: =TextBox4_21.BorderColor
+        PressedColor: =TextBox4_21.Color
+        PressedFill: =TextBox4_21.Fill
+        Size: =10
+        Text: ="GRANTS BY STATUS"
+        Width: =298.8888888888889
+        X: =23
+        Y: =138
+        ZIndex: =16
+
+    TextBox4_22 As label:
+        Color: =RGBA(0,25,83,.8)
+        DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+        Font: =Font.'Lato Black'
+        Height: =27
+        HoverBorderColor: =TextBox4_22.BorderColor
+        HoverColor: =TextBox4_22.Color
+        HoverFill: =TextBox4_22.Fill
+        PressedBorderColor: =TextBox4_22.BorderColor
+        PressedColor: =TextBox4_22.Color
+        PressedFill: =TextBox4_22.Fill
+        Size: =8
+        Text: ="TOTAL GENERAL GRANTS"
+        Width: =187
+        X: =28
+        Y: =432
+        ZIndex: =17
+
+    PieChart1 As pieChart:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        Color: =RGBA(37, 36, 35, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        Explode: =2
+        Font: =Font.'Segoe UI'
+        Height: =298
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        ItemColorSet: =[RGBA(49, 130, 93, 1),RGBA(48, 166, 103, 1), RGBA(94, 193, 108, 1), RGBA(246, 199, 144, 1), RGBA(247, 199, 114, 1), RGBA(247, 180, 91, 1), RGBA(246, 143, 100, 1), RGBA(212, 96, 104, 1), RGBA(148, 110, 176, 1), RGBA(118, 154, 204, 1), RGBA(96, 197, 234, 1)]
+        Items: =Distinct(allgrants, Status)
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        Width: =340
+        Y: =131
+        ZIndex: =18
+
+    Circle1 As circle:
+        BorderColor: =RGBA(243, 242, 241, 1)
+        BorderStyle: =BorderStyle.None
+        DisabledFill: =RGBA(98, 100, 167, 1)
+        Fill: =LookUp(colColorScheme,Name="bg_Primary",color)
+        Height: =160
+        HoverFill: =RGBA(98, 100, 167, 1)
+        PressedFill: =RGBA(98, 100, 167, 1)
+        Width: =157
+        X: =91
+        Y: =200
+        ZIndex: =19
+
+    Label7 As Label:
+        Alignment: =Align.Center
+        DisplayMode: =DisplayMode.Edit
+        FontSize: =45
+        FontWeight: =FontWeight.Bold
+        Height: =84
+        PCFTeamsTheme: ="default"
+        Text: =CountRows(allgrants)
+        Width: =91
+        X: =124
+        Y: =229
+        ZIndex: =20
+
+    TextBox4_23 As label:
+        Color: =RGBA(0,25,83,.8)
+        DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+        Font: =Font.'Lato Black'
+        Height: =27
+        HoverBorderColor: =TextBox4_23.BorderColor
+        HoverColor: =TextBox4_23.Color
+        HoverFill: =TextBox4_23.Fill
+        PressedBorderColor: =TextBox4_23.BorderColor
+        PressedColor: =TextBox4_23.Color
+        PressedFill: =TextBox4_23.Fill
+        Size: =8
+        Text: ="TOTAL WELLBEING GRANTS"
+        Width: =187
+        X: =28
+        Y: =501
+        ZIndex: =21
+
+    TextBox4_24 As label:
+        Color: =RGBA(0,25,83,.8)
+        DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+        Font: =Font.'Lato Black'
+        Height: =27
+        HoverBorderColor: =TextBox4_24.BorderColor
+        HoverColor: =TextBox4_24.Color
+        HoverFill: =TextBox4_24.Fill
+        PressedBorderColor: =TextBox4_24.BorderColor
+        PressedColor: =TextBox4_24.Color
+        PressedFill: =TextBox4_24.Fill
+        Size: =8
+        Text: ="TOTAL SPORT GRANTS"
+        Width: =187
+        X: =28
+        Y: =582
+        ZIndex: =22
+
+    TextBox4_25 As label:
+        Color: =RGBA(0,25,83,.8)
+        DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Semibold
+        Height: =27
+        HoverBorderColor: =TextBox4_25.BorderColor
+        HoverColor: =TextBox4_25.Color
+        HoverFill: =TextBox4_25.Fill
+        PressedBorderColor: =TextBox4_25.BorderColor
+        PressedColor: =TextBox4_25.Color
+        PressedFill: =TextBox4_25.Fill
+        Size: =15
+        Text: =CountRows(Grants_tb_sportGrants)
+        Width: =187
+        X: =28
+        Y: =621
+        ZIndex: =23
+
+    TextBox4_26 As label:
+        Color: =RGBA(0,25,83,.8)
+        DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Semibold
+        Height: =27
+        HoverBorderColor: =TextBox4_26.BorderColor
+        HoverColor: =TextBox4_26.Color
+        HoverFill: =TextBox4_26.Fill
+        PressedBorderColor: =TextBox4_26.BorderColor
+        PressedColor: =TextBox4_26.Color
+        PressedFill: =TextBox4_26.Fill
+        Size: =15
+        Text: =CountRows(Filter(Grants_tb_wellbeingGrants,'Grant Type' = GrantTypes.Wellbeing))
+        Width: =187
+        X: =28
+        Y: =541
+        ZIndex: =24
+
+    TextBox4_27 As label:
+        Color: =RGBA(0,25,83,.8)
+        DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Semibold
+        Height: =27
+        HoverBorderColor: =TextBox4_27.BorderColor
+        HoverColor: =TextBox4_27.Color
+        HoverFill: =TextBox4_27.Fill
+        PressedBorderColor: =TextBox4_27.BorderColor
+        PressedColor: =TextBox4_27.Color
+        PressedFill: =TextBox4_27.Fill
+        Size: =15
+        Text: =CountRows(Filter(Grants_tb_wellbeingGrants,'Grant Type' = GrantTypes.General ))
+        Width: =187
+        X: =28
+        Y: =466
+        ZIndex: =25
+
+    Rectangle8 As rectangle:
+        BorderColor: =RGBA(243, 242, 241, 1)
+        BorderStyle: =BorderStyle.None
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        Fill: =RGBA(0, 0, 0, 0)
+        FocusedBorderColor: =RGBA(98, 100, 167, 1)
+        Height: =577
+        HoverFill: =RGBA(0, 0, 0, 0)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Width: =340
+        Y: =131
+        ZIndex: =26
+
+    Rectangle9 As rectangle:
+        BorderColor: =RGBA(243, 242, 241, 1)
+        BorderStyle: =BorderStyle.None
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        Fill: =RGBA(0, 0, 0, 0)
+        FocusedBorderColor: =RGBA(98, 100, 167, 1)
+        Height: =47
+        HoverFill: =RGBA(0, 0, 0, 0)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Width: =1026
+        X: =340
+        Y: =123
+        ZIndex: =27
+
+    Settings_5 As Settings:
+        Visible: =showMenu
+        X: =1254
+        Y: =60
+        ZIndex: =28
+

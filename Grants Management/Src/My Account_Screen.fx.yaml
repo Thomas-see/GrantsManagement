@@ -1,0 +1,315 @@
+"'My Account_Screen' As screen":
+    Fill: =LookUp(colColorScheme,Name="bg_Primary",color)
+    LoadingSpinnerColor: =RGBA(98, 100, 167, 1)
+    OnHidden: |-
+        =UpdateContext({showMenu:false})
+
+    TrialNotification_8 As TrialNotification:
+        ChildTabPriority: =false
+        EnableChildFocus: =false
+        Message: =//TrialMessage
+        Visible: =false//If(CMSAppData.type = "1" ,true,false)
+
+    Label1_12 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Color: =RGBA(116, 116, 116, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FontWeight: =FontWeight.Bold
+        Size: =9
+        Text: =licenceMessage
+        Width: =400
+        X: =App.Width - Self.Width
+        Y: =App.Height - Self.Height
+        ZIndex: =2
+
+    rightContainer As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Bold
+        Fill: =LookUp(colColorScheme,Name="bg_Secondary",color)
+        Height: =650
+        Width: =860
+        X: =506
+        Y: =60
+        ZIndex: =3
+
+        Label1_16 As label:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(60, 60, 59, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Bold
+            Height: =90
+            PaddingLeft: =LookUp(colColorScheme,Name="body_padding",padding)
+            Size: =20
+            Text: ="MY SUBSCRIPTION"
+            Width: =Parent.Width
+            ZIndex: =1
+
+        Rectangle2_1 As rectangle:
+            BorderColor: =RGBA(243, 242, 241, 1)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledFill: =RGBA(200, 198, 196, 1)
+            DisplayMode: =DisplayMode.View
+            Fill: =LookUp(colColorScheme,Name="body_colour",Colour)
+            FocusedBorderColor: =RGBA(98, 100, 167, 1)
+            Height: =3
+            Width: =Label1_16.Width
+            Y: =Label1_16.Y + Label1_16.Height - Self.Height
+            ZIndex: =2
+
+        emaillbl As label:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(60, 60, 59, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Bold
+            Height: =90
+            PaddingLeft: =LookUp(colColorScheme,Name="body_padding",padding)
+            Size: =13
+            Text: ="Email"
+            Width: =Parent.Width/3
+            Y: =Label1_16.Y + Label1_16.Height
+            ZIndex: =3
+
+        emailVallbl As label:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(128, 128, 128, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =90
+            PaddingLeft: =0
+            Size: =13
+            Text: =User().Email
+            Width: =Parent.Width - Self.X
+            X: =emaillbl.X+emaillbl.Width
+            Y: =Label1_16.Y + Label1_16.Height
+            ZIndex: =4
+
+        emaillbl_1 As label:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(60, 60, 59, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Bold
+            Height: =90
+            PaddingLeft: =LookUp(colColorScheme,Name="body_padding",padding)
+            Size: =13
+            Text: ="Subscription"
+            Width: =Parent.Width/3
+            Y: =emaillbl.Y + emaillbl.Height
+            ZIndex: =5
+
+        Button2_3 As button:
+            BorderThickness: =0
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(255, 255, 255, 1)
+            DisabledFill: =If(CMSAppData.type = "1" ,RGBA(242, 182, 0, 1),CMSAppData.type = "2" ,RGBA(127, 178, 57, 1),RGBA(0, 121, 187, 1))
+            DisplayMode: =DisplayMode.Disabled
+            Fill: =RGBA(149, 149, 149, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =50
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(Self.Color, -50%)
+            OnSelect: |-
+                =
+                //Launch( ThisItem.URL )
+            RadiusBottomLeft: =20
+            RadiusBottomRight: =20
+            RadiusTopLeft: =20
+            RadiusTopRight: =20
+            Size: =17
+            Text: =If(CMSAppData.type = "1" ,"Trial",CMSAppData.type = "2" ,"Production","Permanent")
+            Width: =150
+            X: =emaillbl_1.X+emaillbl_1.Width
+            Y: =emaillbl_1.Y + emaillbl_1.Height/2  - Self.Height/2
+            ZIndex: =7
+
+        emaillbl_2 As label:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(60, 60, 59, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Bold
+            Height: =90
+            PaddingLeft: =LookUp(colColorScheme,Name="body_padding",padding)
+            Size: =13
+            Text: ="Expires on"
+            Width: =Parent.Width/3
+            Y: =emaillbl_1.Y + emaillbl_1.Height
+            ZIndex: =8
+
+        emailVallbl_1 As label:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(128, 128, 128, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =90
+            PaddingLeft: =0
+            Size: =13
+            Text: =Text(DateValue(CMSAppData.expirydate),"dd, mmmm yyyy")
+            Width: =Parent.Width - Self.X
+            X: =emaillbl_2.X+emaillbl_2.Width
+            Y: =emaillbl_1.Y + emaillbl_1.Height
+            ZIndex: =9
+
+    Label1_17 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Color: =RGBA(116, 116, 116, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FontWeight: =FontWeight.Bold
+        Size: =9
+        Text: =licenceMessage
+        Width: =400
+        X: =App.Width - Self.Width
+        Y: =App.Height - Self.Height
+        ZIndex: =4
+
+    blank_rec_3 As blank_rec:
+        SaveButton: ="Text"
+        SaveProgressButton: ="Text"
+        Y: =708
+        ZIndex: =5
+
+    header_page_6 As header_page:
+        OnChangeLogo: =false
+        OnSelect: =Back()
+        PageName: ="My Account Details"
+        ZIndex: =8
+
+    calIcon As icon.CalendarBlank:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Color: =RGBA(61, 63, 104, 1)//LookUp(colColorScheme,Name="Main_colour",Colour)
+        DisabledBorderColor: =RGBA(243, 242, 241, 1)
+        DisabledColor: =RGBA(220, 220, 220, 1)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        Height: =130
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Icon: =Icon.CalendarBlank
+        PaddingBottom: =3
+        PaddingLeft: =3
+        PaddingRight: =3
+        PaddingTop: =3
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Width: =130
+        X: =187
+        Y: =108
+        ZIndex: =9
+
+    daysleftLBL As Label:
+        Alignment: =Align.Center
+        Color: =
+        DisplayMode: =DisplayMode.Edit
+        FontSize: =30
+        FontWeight: =FontWeight.Bold
+        Height: =calIcon.Height
+        PaddingTop: =15
+        PCFTeamsTheme: ="default"
+        Text: =DateDiff( Now(), DateValue(CMSAppData.expirydate) )
+        Width: =calIcon.Width
+        X: =calIcon.X
+        Y: =108
+        ZIndex: =10
+
+    Label10 As Label:
+        Alignment: =Align.Center
+        AutoHeight: =false
+        Color: =
+        DisplayMode: =DisplayMode.Edit
+        FontSize: =20
+        FontWeight: =FontWeight.Bold
+        Height: =52
+        PCFTeamsTheme: ="default"
+        Text: ="Days Left"
+        Width: =320
+        X: =92
+        Y: =238
+        ZIndex: =11
+
+    Button2_2 As button:
+        BorderThickness: =0
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(149, 149, 149, 1)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        Height: =55
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =ColorFade(Self.Color, -50%)
+        OnSelect: =Launch( LookUp(settings,name= "Request License").url )
+        RadiusBottomLeft: =20
+        RadiusBottomRight: =20
+        RadiusTopLeft: =20
+        RadiusTopRight: =20
+        Size: =17
+        Text: ="Request Licence"
+        Width: =300
+        X: =102
+        Y: =Label10.Y + Label10.Height + LookUp(colColorScheme,Name="height_padding",padding)
+        ZIndex: =12
+
+    Group2_1 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =12
+
+        Circle1_4 As circle:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(60, 60, 59, 1)
+            Height: =55
+            HoverFill: =ColorFade(RGBA(234,91,12, 1), -20%)
+            OnSelect: =Navigate(Home)
+            Width: =55
+            X: =655
+            Y: =710
+            ZIndex: =6
+
+        Icon1_3 As icon.Add:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            Height: =65
+            Icon: =Icon.Home
+            OnSelect: =Navigate(Home)
+            PaddingBottom: =10
+            PaddingLeft: =15
+            PaddingRight: =15
+            PaddingTop: =15
+            Width: =65
+            X: =651
+            Y: =700
+            ZIndex: =7
+
+    daysleftLBL_1 As Label:
+        Alignment: =Align.Center
+        Color: =
+        DisplayMode: =DisplayMode.Edit
+        FontSize: =30
+        FontWeight: =FontWeight.Bold
+        Height: =calIcon.Height
+        PaddingTop: =15
+        PCFTeamsTheme: ="default"
+        Text: =DateDiff( Now(), DateValue(CMSAppData.expirydate) )
+        Width: =calIcon.Width
+        X: =calIcon.X
+        Y: =108
+        ZIndex: =13
+
+    Settings_9 As Settings:
+        Visible: =showMenu
+        X: =App.Width - Self.Width
+        Y: =header_page_6.Height + header_page_6.Y
+        ZIndex: =14
+

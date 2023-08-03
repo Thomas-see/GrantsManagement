@@ -1,0 +1,58 @@
+header As CanvasComponent:
+    Fill: =LookUp(colColorScheme,Name="Main_colour",Colour)
+    Height: =60
+    OnSelectHamburger: |-
+        =UpdateContext({showMenu: !showMenu})
+    Width: =Max(App.Width, App.MinScreenWidth)
+    X: =0
+    Y: =0
+    ZIndex: =2
+
+    Label14 As label:
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =60
+        PaddingLeft: =20
+        Size: =20
+        Text: ="GRANTLINK"
+        Width: =493
+        ZIndex: =1
+
+    Label20 As label:
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Height: =18
+        Size: =7
+        Text: ="Powered by"
+        Visible: =false
+        Width: =134
+        X: =1135
+        Y: =1
+        ZIndex: =3
+
+    Icon1 As icon.Add:
+        BorderColor: =RGBA(255, 255, 255, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        Height: =60
+        Icon: =Icon.Hamburger
+        OnSelect: =Parent.OnSelectHamburger()
+        Width: =30
+        X: =1302
+        ZIndex: =4
+
+    Image5 As image:
+        BorderColor: =RGBA(0, 18, 107, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Height: =60
+        Image: =Powered_by_CloudyIT_logo_15Dec
+        Width: =145
+        X: =1135
+        Y: =1
+        ZIndex: =5
+

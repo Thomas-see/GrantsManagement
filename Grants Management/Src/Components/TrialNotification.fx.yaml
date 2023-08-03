@@ -1,0 +1,27 @@
+TrialNotification As CanvasComponent:
+    Fill: =RGBA(242, 182, 0, 1)
+    Height: =35
+    Message: ="Text"
+    Width: =App.Width
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    Label5_2 As Label:
+        DisplayMode: =DisplayMode.Edit
+        Font: =Font.'Open Sans'
+        FontSize: =15
+        FontWeight: =FontWeight.Semibold
+        Height: =Parent.Height
+        PaddingBottom: =5
+        PaddingEnd: =5
+        PaddingStart: =20
+        PaddingTop: =5
+        PCFTeamsTheme: ="default"
+        Text: =Parent.Message
+        TextRole: ='Label.TextRole'.Default
+        Width: =Parent.Width- Self.X 
+        X: =0
+        Y: =0
+        ZIndex: =2
+
